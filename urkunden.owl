@@ -1,0 +1,673 @@
+@prefix : <http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5> .
+
+<http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#ausgefertigtIn
+:ausgefertigtIn rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#begründet
+:begründet rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :repräsentiert .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#bestehtAusMaterial
+:bestehtAusMaterial rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#bezeugt
+:bezeugt rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :repräsentiert .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#enthält
+:enthält rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdf:type owl:AsymmetricProperty .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#hatOriginal
+:hatOriginal rdf:type owl:ObjectProperty ,
+                      owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#hatTeil
+:hatTeil rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         owl:inverseOf :istTeilVon ;
+         rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#istKopieVon
+:istKopieVon rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#istRepräsentiertDurch
+:istRepräsentiertDurch rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :repräsentiert .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#istTeilVon
+:istTeilVon rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#repräsentiert
+:repräsentiert rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#überliefertAls
+:überliefertAls rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/2002/07/owl#topObjectProperty
+owl:topObjectProperty rdf:type owl:ObjectProperty ,
+                               owl:TransitiveProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Apprecatio
+:Apprecatio rdf:type owl:Class ;
+            rdfs:subClassOf :Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Arenga
+:Arenga rdf:type owl:Class ;
+        rdfs:subClassOf :Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Aussteller
+:Aussteller rdf:type owl:Class ;
+            rdfs:subClassOf :Personal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#BeneValete
+:BeneValete rdf:type owl:Class ;
+            rdfs:subClassOf :ÄußeresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Blei
+:Blei rdf:type owl:Class ;
+      rdfs:subClassOf :Metall .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Breve
+:Breve rdf:type owl:Class ;
+       rdfs:subClassOf :Notitia .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Bulle
+:Bulle rdf:type owl:Class ;
+       owl:equivalentClass [ owl:intersectionOf ( :Siegel
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :bestehtAusMaterial ;
+                                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                    owl:onClass :Metall
+                                                  ]
+                                                ) ;
+                             rdf:type owl:Class
+                           ] ;
+       rdfs:subClassOf :Siegel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Charta
+:Charta rdf:type owl:Class ;
+        owl:equivalentClass [ owl:intersectionOf ( :Dokument
+                                                   [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty :begründet ;
+                                                                            owl:someValuesFrom :Rechtsinhalt
+                                                                          ]
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty :hatTeil ;
+                                                                            owl:someValuesFrom :Text
+                                                                          ]
+                                                                        ) ;
+                                                     rdf:type owl:Class
+                                                   ]
+                                                 ) ;
+                              rdf:type owl:Class
+                            ] ;
+        rdfs:subClassOf :Urkundenform .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Chrismon
+:Chrismon rdf:type owl:Class ;
+          rdfs:subClassOf :ÄußeresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Corroboratio
+:Corroboratio rdf:type owl:Class ;
+              rdfs:subClassOf :Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#CumFiloCanapis
+:CumFiloCanapis rdf:type owl:Class ;
+                rdfs:subClassOf :Siegelbefestigung .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#CumFiloSerico
+:CumFiloSerico rdf:type owl:Class ;
+               rdfs:subClassOf :Siegelbefestigung .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Datierung
+:Datierung rdf:type owl:Class ;
+           rdfs:subClassOf :Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Diktator
+:Diktator rdf:type owl:Class ;
+          rdfs:subClassOf :Kanzleipersonal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Diplom
+:Diplom rdf:type owl:Class ;
+        rdfs:subClassOf :Dokument .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Dispositio
+:Dispositio rdf:type owl:Class ;
+            rdfs:subClassOf :Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Dokument
+:Dokument rdf:type owl:Class ;
+          owl:equivalentClass [ owl:intersectionOf ( :Urkunde
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :hatTeil ;
+                                                       owl:someValuesFrom :InneresMerkmal
+                                                     ]
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :hatTeil ;
+                                                       owl:someValuesFrom :ÄußeresMerkmal
+                                                     ]
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :bestehtAusMaterial ;
+                                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                       owl:onClass [ rdf:type owl:Class ;
+                                                                     owl:unionOf ( :Papier
+                                                                                   :Papyrus
+                                                                                   :Pergament
+                                                                                 )
+                                                                   ]
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Durchdruck
+:Durchdruck rdf:type owl:Class ;
+            rdfs:subClassOf :Siegelbefestigung .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Eingangsprotokoll
+:Eingangsprotokoll rdf:type owl:Class ;
+                   owl:equivalentClass [ owl:intersectionOf ( :InneresMerkmal
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :hatTeil ;
+                                                                owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                    owl:unionOf ( :Inscriptio
+                                                                                                  :Intitulatio
+                                                                                                  :Invocatio
+                                                                                                )
+                                                                                  ]
+                                                              ]
+                                                            ) ;
+                                         rdf:type owl:Class
+                                       ] .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Elongata
+:Elongata rdf:type owl:Class ;
+          rdfs:subClassOf :Schrift .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Empfänger
+:Empfänger rdf:type owl:Class ;
+           rdfs:subClassOf :Personal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Eschatokoll
+:Eschatokoll rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :InneresMerkmal
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :hatTeil ;
+                                                          owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                              owl:unionOf ( :Apprecatio
+                                                                                            :Datierung
+                                                                                            :Subscriptio
+                                                                                          )
+                                                                            ]
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Formel
+:Formel rdf:type owl:Class ;
+        rdfs:subClassOf :InneresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Formular
+:Formular rdf:type owl:Class ;
+          owl:equivalentClass [ owl:intersectionOf ( :InneresMerkmal
+                                                     [ owl:intersectionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty :hatTeil ;
+                                                                                                     owl:someValuesFrom :Eschatokoll
+                                                                                                   ]
+                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty :hatTeil ;
+                                                                                                     owl:someValuesFrom :Kontext
+                                                                                                   ]
+                                                                                                 ) ;
+                                                                              rdf:type owl:Class
+                                                                            ]
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty :hatTeil ;
+                                                                              owl:someValuesFrom :Eingangsprotokoll
+                                                                            ]
+                                                                          ) ;
+                                                       rdf:type owl:Class
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Fälschung
+:Fälschung rdf:type owl:Class ;
+           rdfs:subClassOf :Überlieferung .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Gold
+:Gold rdf:type owl:Class ;
+      rdfs:subClassOf :Metall .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Gültigkeitsdauer
+:Gültigkeitsdauer rdf:type owl:Class ;
+                  rdfs:subClassOf :InneresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Herrscherurkunde
+:Herrscherurkunde rdf:type owl:Class ;
+                  rdfs:subClassOf :ÖffentlicheUrkunde .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#InneresMerkmal
+:InneresMerkmal rdf:type owl:Class ;
+                owl:disjointWith :ÄußeresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Inscriptio
+:Inscriptio rdf:type owl:Class ;
+            rdfs:subClassOf :Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Intitulatio
+:Intitulatio rdf:type owl:Class ;
+             rdfs:subClassOf :Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Invocatio
+:Invocatio rdf:type owl:Class ;
+           rdfs:subClassOf :Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Kanzleipersonal
+:Kanzleipersonal rdf:type owl:Class ;
+                 rdfs:subClassOf :Personal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Kanzler
+:Kanzler rdf:type owl:Class ;
+         rdfs:subClassOf :Kanzleipersonal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Kapitälchen
+:Kapitälchen rdf:type owl:Class ;
+             rdfs:subClassOf :Schrift .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Kontext
+:Kontext rdf:type owl:Class ;
+         owl:equivalentClass [ owl:intersectionOf ( :InneresMerkmal
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :hatTeil ;
+                                                      owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                          owl:unionOf ( :Arenga
+                                                                                        :Corroboratio
+                                                                                        :Dispositio
+                                                                                        :Narratio
+                                                                                        :Promulgatio
+                                                                                        :Sanctio
+                                                                                      )
+                                                                        ]
+                                                    ]
+                                                  ) ;
+                               rdf:type owl:Class
+                             ] .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Konzept
+:Konzept rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Restriction ;
+                               owl:onProperty :ausgefertigtIn ;
+                               owl:someValuesFrom :Original
+                             ] ;
+         rdfs:subClassOf :Überlieferung .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Kopie
+:Kopie rdf:type owl:Class ;
+       owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hatOriginal ;
+                                                    owl:someValuesFrom :Original
+                                                  ]
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :istKopieVon ;
+                                                    owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                         owl:unionOf ( :Kopie
+                                                                                       :Original
+                                                                                     )
+                                                                       ]
+                                                  ]
+                                                ) ;
+                             rdf:type owl:Class
+                           ] ;
+       rdfs:subClassOf :Überlieferung .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Littera
+:Littera rdf:type owl:Class ;
+         rdfs:subClassOf :Dokument .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Mandat
+:Mandat rdf:type owl:Class ;
+        rdfs:subClassOf :Dokument .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Material
+:Material rdf:type owl:Class ;
+          rdfs:subClassOf :ÄußeresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Metall
+:Metall rdf:type owl:Class ;
+        rdfs:subClassOf :Material .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Monarch
+:Monarch rdf:type owl:Class ;
+         rdfs:subClassOf :Aussteller ;
+         owl:disjointWith :Papst .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Monogramm
+:Monogramm rdf:type owl:Class ;
+           rdfs:subClassOf :ÄußeresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Narratio
+:Narratio rdf:type owl:Class ;
+          rdfs:subClassOf :Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Notitia
+:Notitia rdf:type owl:Class ;
+         owl:equivalentClass [ owl:intersectionOf ( :Dokument
+                                                    [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty :bezeugt ;
+                                                                             owl:someValuesFrom :Rechtsinhalt
+                                                                           ]
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty :hatTeil ;
+                                                                             owl:someValuesFrom :Text
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ]
+                                                  ) ;
+                               rdf:type owl:Class
+                             ] ;
+         rdfs:subClassOf :Urkundenform .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Original
+:Original rdf:type owl:Class ;
+          rdfs:subClassOf :Überlieferung .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Papier
+:Papier rdf:type owl:Class ;
+        rdfs:subClassOf :Material .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Papst
+:Papst rdf:type owl:Class ;
+       rdfs:subClassOf :Aussteller .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Papsturkunde
+:Papsturkunde rdf:type owl:Class ;
+              rdfs:subClassOf :ÖffentlicheUrkunde .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Papyrus
+:Papyrus rdf:type owl:Class ;
+         rdfs:subClassOf :Material .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Pergament
+:Pergament rdf:type owl:Class ;
+           rdfs:subClassOf :Material .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Personal
+:Personal rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Privaturkunde
+:Privaturkunde rdf:type owl:Class ;
+               rdfs:subClassOf :Dokument ;
+               owl:disjointWith :ÖffentlicheUrkunde .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Privileg
+:Privileg rdf:type owl:Class ;
+          rdfs:subClassOf :Dokument .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Promulgatio
+:Promulgatio rdf:type owl:Class ;
+             rdfs:subClassOf :Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Rechtsinhalt
+:Rechtsinhalt rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Rekognitionszeichen
+:Rekognitionszeichen rdf:type owl:Class ;
+                     rdfs:subClassOf :ÄußeresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Rota
+:Rota rdf:type owl:Class ;
+      rdfs:subClassOf :ÄußeresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Sanctio
+:Sanctio rdf:type owl:Class ;
+         rdfs:subClassOf :Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Schreiber
+:Schreiber rdf:type owl:Class ;
+           rdfs:subClassOf :Kanzleipersonal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Schrift
+:Schrift rdf:type owl:Class ;
+         rdfs:subClassOf :ÄußeresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Siegel
+:Siegel rdf:type owl:Class ;
+        rdfs:subClassOf :ÄußeresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Siegelbefestigung
+:Siegelbefestigung rdf:type owl:Class ;
+                   rdfs:subClassOf :ÄußeresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Subscriptio
+:Subscriptio rdf:type owl:Class ;
+             rdfs:subClassOf :Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Text
+:Text rdf:type owl:Class ;
+      rdfs:subClassOf :InneresMerkmal ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hatTeil ;
+                        owl:someValuesFrom :Formular
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :repräsentiert ;
+                        owl:someValuesFrom :Rechtsinhalt
+                      ] .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Urkunde
+:Urkunde rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Urkundenform
+:Urkundenform rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Wachssiegel
+:Wachssiegel rdf:type owl:Class ;
+             rdfs:subClassOf :Siegel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Zeuge
+:Zeuge rdf:type owl:Class ;
+       rdfs:subClassOf :InneresMerkmal ,
+                       :Personal ;
+       rdfs:comment "bei Thommen als inneres Merkmal" .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#ÄußeresMerkmal
+:ÄußeresMerkmal rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#ÖffentlicheUrkunde
+:ÖffentlicheUrkunde rdf:type owl:Class ;
+                    rdfs:subClassOf :Dokument .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Überlieferung
+:Überlieferung rdf:type owl:Class ;
+               rdfs:subClassOf :Urkunde .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Apprecatio
+                :Arenga
+                :Corroboratio
+                :Datierung
+                :Dispositio
+                :Inscriptio
+                :Intitulatio
+                :Invocatio
+                :Narratio
+                :Promulgatio
+                :Sanctio
+                :Subscriptio
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Aussteller
+                :Empfänger
+                :Kanzleipersonal
+                :Zeuge
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :BeneValete
+                :Chrismon
+                :Material
+                :Monogramm
+                :Rekognitionszeichen
+                :Rota
+                :Schrift
+                :Siegel
+                :Siegelbefestigung
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Diktator
+                :Kanzler
+                :Schreiber
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Eingangsprotokoll
+                :Eschatokoll
+                :Kontext
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Fälschung
+                :Konzept
+                :Kopie
+                :Original
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Papier
+                :Papyrus
+                :Pergament
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
