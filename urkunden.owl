@@ -1,76 +1,94 @@
-@prefix : <http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#> .
+@prefix : <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dipl: <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5> .
+@base <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik> .
 
-<http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5> rdf:type owl:Ontology .
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#vidID
+dipl:vidID rdf:type owl:AnnotationProperty .
+
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#ausgefertigtIn
-:ausgefertigtIn rdf:type owl:ObjectProperty ,
-                         owl:FunctionalProperty .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#ausgefertigtIn
+dipl:ausgefertigtIn rdf:type owl:ObjectProperty ,
+                             owl:FunctionalProperty .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#begründet
-:begründet rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf :repräsentiert .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#befestigtMit
+dipl:befestigtMit rdf:type owl:ObjectProperty .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#bestehtAusMaterial
-:bestehtAusMaterial rdf:type owl:ObjectProperty .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#begründet
+dipl:begründet rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf dipl:repräsentiert .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#bezeugt
-:bezeugt rdf:type owl:ObjectProperty ;
-         rdfs:subPropertyOf :repräsentiert .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#bestehtAusMaterial
+dipl:bestehtAusMaterial rdf:type owl:ObjectProperty .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#enthält
-:enthält rdf:type owl:ObjectProperty ;
-         rdfs:subPropertyOf owl:topObjectProperty ;
-         rdf:type owl:AsymmetricProperty .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#bezeugt
+dipl:bezeugt rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf dipl:repräsentiert .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#hatOriginal
-:hatOriginal rdf:type owl:ObjectProperty ,
-                      owl:FunctionalProperty .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#enthält
+dipl:enthält rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdf:type owl:AsymmetricProperty .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#hatTeil
-:hatTeil rdf:type owl:ObjectProperty ;
-         rdfs:subPropertyOf owl:topObjectProperty ;
-         owl:inverseOf :istTeilVon ;
-         rdf:type owl:TransitiveProperty .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#hatAussteller
+dipl:hatAussteller rdf:type owl:ObjectProperty ,
+                            owl:InverseFunctionalProperty .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#istKopieVon
-:istKopieVon rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf owl:topObjectProperty .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#hatOriginal
+dipl:hatOriginal rdf:type owl:ObjectProperty ,
+                          owl:FunctionalProperty .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#istRepräsentiertDurch
-:istRepräsentiertDurch rdf:type owl:ObjectProperty ;
-                       owl:inverseOf :repräsentiert .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#hatTeil
+dipl:hatTeil rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             owl:inverseOf dipl:istTeilVon ;
+             rdf:type owl:TransitiveProperty .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#istTeilVon
-:istTeilVon rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf owl:topObjectProperty ;
-            rdf:type owl:TransitiveProperty .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#istKopieVon
+dipl:istKopieVon rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#repräsentiert
-:repräsentiert rdf:type owl:ObjectProperty .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#istRepräsentiertDurch
+dipl:istRepräsentiertDurch rdf:type owl:ObjectProperty ;
+                           owl:inverseOf dipl:repräsentiert .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#überliefertAls
-:überliefertAls rdf:type owl:ObjectProperty .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#istTeilVon
+dipl:istTeilVon rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#repräsentiert
+dipl:repräsentiert rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#überliefertAls
+dipl:überliefertAls rdf:type owl:ObjectProperty .
 
 
 ###  http://www.w3.org/2002/07/owl#topObjectProperty
@@ -82,177 +100,302 @@ owl:topObjectProperty rdf:type owl:ObjectProperty ,
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Apprecatio
-:Apprecatio rdf:type owl:Class ;
-            rdfs:subClassOf :Formel .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Apprecatio
+dipl:Apprecatio rdf:type owl:Class ;
+                rdfs:subClassOf dipl:Formel .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Arenga
-:Arenga rdf:type owl:Class ;
-        rdfs:subClassOf :Formel .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Arenga
+dipl:Arenga rdf:type owl:Class ;
+            rdfs:subClassOf dipl:Formel .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Aussteller
-:Aussteller rdf:type owl:Class ;
-            rdfs:subClassOf :Personal .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Aussteller
+dipl:Aussteller rdf:type owl:Class ;
+                rdfs:subClassOf dipl:Person .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#BeneValete
-:BeneValete rdf:type owl:Class ;
-            rdfs:subClassOf :ÄußeresMerkmal .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#BeneValete
+dipl:BeneValete rdf:type owl:Class ;
+                rdfs:subClassOf dipl:GraphischesSymbol .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Blei
-:Blei rdf:type owl:Class ;
-      rdfs:subClassOf :Metall .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Blei
+dipl:Blei rdf:type owl:Class ;
+          rdfs:subClassOf dipl:Metall .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Breve
-:Breve rdf:type owl:Class ;
-       rdfs:subClassOf :Notitia .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Breve
+dipl:Breve rdf:type owl:Class ;
+           rdfs:subClassOf dipl:Notitia .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Bulle
-:Bulle rdf:type owl:Class ;
-       owl:equivalentClass [ owl:intersectionOf ( :Siegel
-                                                  [ rdf:type owl:Restriction ;
-                                                    owl:onProperty :bestehtAusMaterial ;
-                                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                    owl:onClass :Metall
-                                                  ]
-                                                ) ;
-                             rdf:type owl:Class
-                           ] ;
-       rdfs:subClassOf :Siegel .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Bulle
+dipl:Bulle rdf:type owl:Class ;
+           owl:equivalentClass [ owl:intersectionOf ( dipl:Siegel
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty dipl:bestehtAusMaterial ;
+                                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                        owl:onClass dipl:Metall
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
+           rdfs:subClassOf dipl:Siegel .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Charta
-:Charta rdf:type owl:Class ;
-        owl:equivalentClass [ owl:intersectionOf ( :Dokument
-                                                   [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                            owl:onProperty :begründet ;
-                                                                            owl:someValuesFrom :Rechtsinhalt
-                                                                          ]
-                                                                          [ rdf:type owl:Restriction ;
-                                                                            owl:onProperty :hatTeil ;
-                                                                            owl:someValuesFrom :Text
-                                                                          ]
-                                                                        ) ;
-                                                     rdf:type owl:Class
-                                                   ]
-                                                 ) ;
-                              rdf:type owl:Class
-                            ] ;
-        rdfs:subClassOf :Urkundenform .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Charta
+dipl:Charta rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( dipl:Dokument
+                                                       [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty dipl:begründet ;
+                                                                                owl:someValuesFrom dipl:Rechtsinhalt
+                                                                              ]
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty dipl:hatTeil ;
+                                                                                owl:someValuesFrom dipl:Text
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf dipl:Urkundenform .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Chrismon
-:Chrismon rdf:type owl:Class ;
-          rdfs:subClassOf :ÄußeresMerkmal .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Chrismon
+dipl:Chrismon rdf:type owl:Class ;
+              rdfs:subClassOf dipl:GraphischesSymbol .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Corroboratio
-:Corroboratio rdf:type owl:Class ;
-              rdfs:subClassOf :Formel .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Corroboratio
+dipl:Corroboratio rdf:type owl:Class ;
+                  rdfs:subClassOf dipl:Formel .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#CumFiloCanapis
-:CumFiloCanapis rdf:type owl:Class ;
-                rdfs:subClassOf :Siegelbefestigung .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#CumFiloCanapis
+dipl:CumFiloCanapis rdf:type owl:Class ;
+                    rdfs:subClassOf dipl:Siegelbefestigung .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#CumFiloSerico
-:CumFiloSerico rdf:type owl:Class ;
-               rdfs:subClassOf :Siegelbefestigung .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#CumFiloSerico
+dipl:CumFiloSerico rdf:type owl:Class ;
+                   rdfs:subClassOf dipl:Siegelbefestigung .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Datierung
-:Datierung rdf:type owl:Class ;
-           rdfs:subClassOf :Formel .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Datierung
+dipl:Datierung rdf:type owl:Class ;
+               rdfs:subClassOf dipl:Formel .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Diktator
-:Diktator rdf:type owl:Class ;
-          rdfs:subClassOf :Kanzleipersonal .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Diktator
+dipl:Diktator rdf:type owl:Class ;
+              rdfs:subClassOf dipl:Kanzleipersonal .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Diplom
-:Diplom rdf:type owl:Class ;
-        rdfs:subClassOf :Dokument .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Diplom
+dipl:Diplom rdf:type owl:Class ;
+            rdfs:subClassOf dipl:Dokument .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Dispositio
-:Dispositio rdf:type owl:Class ;
-            rdfs:subClassOf :Formel .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Dispositio
+dipl:Dispositio rdf:type owl:Class ;
+                rdfs:subClassOf dipl:Formel .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Dokument
-:Dokument rdf:type owl:Class ;
-          owl:equivalentClass [ owl:intersectionOf ( :Urkunde
-                                                     [ rdf:type owl:Restriction ;
-                                                       owl:onProperty :hatTeil ;
-                                                       owl:someValuesFrom :InneresMerkmal
-                                                     ]
-                                                     [ rdf:type owl:Restriction ;
-                                                       owl:onProperty :hatTeil ;
-                                                       owl:someValuesFrom :ÄußeresMerkmal
-                                                     ]
-                                                     [ rdf:type owl:Restriction ;
-                                                       owl:onProperty :bestehtAusMaterial ;
-                                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                       owl:onClass [ rdf:type owl:Class ;
-                                                                     owl:unionOf ( :Papier
-                                                                                   :Papyrus
-                                                                                   :Pergament
-                                                                                 )
-                                                                   ]
-                                                     ]
-                                                   ) ;
-                                rdf:type owl:Class
-                              ] .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Dokument
+dipl:Dokument rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( dipl:Urkunde
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty dipl:enthält ;
+                                                           owl:someValuesFrom dipl:Schrift
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty dipl:hatTeil ;
+                                                           owl:someValuesFrom dipl:InneresMerkmal
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty dipl:hatTeil ;
+                                                           owl:someValuesFrom dipl:ÄußeresMerkmal
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty dipl:bestehtAusMaterial ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onClass [ rdf:type owl:Class ;
+                                                                         owl:unionOf ( dipl:Papier
+                                                                                       dipl:Papyrus
+                                                                                       dipl:Pergament
+                                                                                     )
+                                                                       ]
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Durchdruck
-:Durchdruck rdf:type owl:Class ;
-            rdfs:subClassOf :Siegelbefestigung .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Durchdruck
+dipl:Durchdruck rdf:type owl:Class ;
+                rdfs:subClassOf dipl:Siegelbefestigung .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Eingangsprotokoll
-:Eingangsprotokoll rdf:type owl:Class ;
-                   owl:equivalentClass [ owl:intersectionOf ( :InneresMerkmal
-                                                              [ rdf:type owl:Restriction ;
-                                                                owl:onProperty :hatTeil ;
-                                                                owl:allValuesFrom [ rdf:type owl:Class ;
-                                                                                    owl:unionOf ( :Inscriptio
-                                                                                                  :Intitulatio
-                                                                                                  :Invocatio
-                                                                                                )
-                                                                                  ]
-                                                              ]
-                                                            ) ;
-                                         rdf:type owl:Class
-                                       ] .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Eingangsprotokoll
+dipl:Eingangsprotokoll rdf:type owl:Class ;
+                       owl:equivalentClass [ owl:intersectionOf ( dipl:InneresMerkmal
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty dipl:hatTeil ;
+                                                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                        owl:unionOf ( dipl:Inscriptio
+                                                                                                      dipl:Intitulatio
+                                                                                                      dipl:Invocatio
+                                                                                                    )
+                                                                                      ]
+                                                                  ]
+                                                                ) ;
+                                             rdf:type owl:Class
+                                           ] .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Elongata
-:Elongata rdf:type owl:Class ;
-          rdfs:subClassOf :Schrift .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Elongata
+dipl:Elongata rdf:type owl:Class ;
+              rdfs:subClassOf dipl:Schrift .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Empfänger
-:Empfänger rdf:type owl:Class ;
-           rdfs:subClassOf :Personal .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Empfänger
+dipl:Empfänger rdf:type owl:Class ;
+               rdfs:subClassOf dipl:Person .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Eschatokoll
-:Eschatokoll rdf:type owl:Class ;
-             owl:equivalentClass [ owl:intersectionOf ( :InneresMerkmal
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Eschatokoll
+dipl:Eschatokoll rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( dipl:InneresMerkmal
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty dipl:hatTeil ;
+                                                              owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                  owl:unionOf ( dipl:Apprecatio
+                                                                                                dipl:Datierung
+                                                                                                dipl:Subscriptio
+                                                                                              )
+                                                                                ]
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Formel
+dipl:Formel rdf:type owl:Class ;
+            rdfs:subClassOf dipl:InneresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Formular
+dipl:Formular rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( dipl:InneresMerkmal
+                                                         [ owl:intersectionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                         owl:onProperty dipl:hatTeil ;
+                                                                                                         owl:someValuesFrom dipl:Eschatokoll
+                                                                                                       ]
+                                                                                                       [ rdf:type owl:Restriction ;
+                                                                                                         owl:onProperty dipl:hatTeil ;
+                                                                                                         owl:someValuesFrom dipl:Kontext
+                                                                                                       ]
+                                                                                                     ) ;
+                                                                                  rdf:type owl:Class
+                                                                                ]
+                                                                                [ rdf:type owl:Restriction ;
+                                                                                  owl:onProperty dipl:hatTeil ;
+                                                                                  owl:someValuesFrom dipl:Eingangsprotokoll
+                                                                                ]
+                                                                              ) ;
+                                                           rdf:type owl:Class
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              dipl:vidID "314" .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Fälschung
+dipl:Fälschung rdf:type owl:Class ;
+               rdfs:subClassOf dipl:Überlieferung .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Gold
+dipl:Gold rdf:type owl:Class ;
+          rdfs:subClassOf dipl:Metall .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#GraphischesSymbol
+dipl:GraphischesSymbol rdf:type owl:Class ;
+                       rdfs:subClassOf dipl:ÄußeresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Gültigkeitsdauer
+dipl:Gültigkeitsdauer rdf:type owl:Class ;
+                      rdfs:subClassOf dipl:InneresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Herrscherurkunde
+dipl:Herrscherurkunde rdf:type owl:Class ;
+                      owl:equivalentClass [ owl:intersectionOf ( dipl:Urkunde
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty dipl:hatAussteller ;
+                                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                   owl:onClass dipl:Monarch
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ] ;
+                      rdfs:subClassOf dipl:ÖffentlicheUrkunde .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#InneresMerkmal
+dipl:InneresMerkmal rdf:type owl:Class ;
+                    owl:disjointWith dipl:ÄußeresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Inscriptio
+dipl:Inscriptio rdf:type owl:Class ;
+                rdfs:subClassOf dipl:Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Intitulatio
+dipl:Intitulatio rdf:type owl:Class ;
+                 rdfs:subClassOf dipl:Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Invocatio
+dipl:Invocatio rdf:type owl:Class ;
+               rdfs:subClassOf dipl:Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kanzleipersonal
+dipl:Kanzleipersonal rdf:type owl:Class ;
+                     rdfs:subClassOf dipl:Person .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kanzler
+dipl:Kanzler rdf:type owl:Class ;
+             rdfs:subClassOf dipl:Kanzleipersonal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kapitälchen
+dipl:Kapitälchen rdf:type owl:Class ;
+                 rdfs:subClassOf dipl:Schrift .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kontext
+dipl:Kontext rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( dipl:InneresMerkmal
                                                         [ rdf:type owl:Restriction ;
-                                                          owl:onProperty :hatTeil ;
+                                                          owl:onProperty dipl:hatTeil ;
                                                           owl:allValuesFrom [ rdf:type owl:Class ;
-                                                                              owl:unionOf ( :Apprecatio
-                                                                                            :Datierung
-                                                                                            :Subscriptio
+                                                                              owl:unionOf ( dipl:Arenga
+                                                                                            dipl:Corroboratio
+                                                                                            dipl:Dispositio
+                                                                                            dipl:Narratio
+                                                                                            dipl:Promulgatio
+                                                                                            dipl:Sanctio
                                                                                           )
                                                                             ]
                                                         ]
@@ -261,336 +404,258 @@ owl:topObjectProperty rdf:type owl:ObjectProperty ,
                                  ] .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Formel
-:Formel rdf:type owl:Class ;
-        rdfs:subClassOf :InneresMerkmal .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Konzept
+dipl:Konzept rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                   owl:onProperty dipl:ausgefertigtIn ;
+                                   owl:someValuesFrom dipl:Original
+                                 ] ;
+             rdfs:subClassOf dipl:Überlieferung .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Formular
-:Formular rdf:type owl:Class ;
-          owl:equivalentClass [ owl:intersectionOf ( :InneresMerkmal
-                                                     [ owl:intersectionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                                                     owl:onProperty :hatTeil ;
-                                                                                                     owl:someValuesFrom :Eschatokoll
-                                                                                                   ]
-                                                                                                   [ rdf:type owl:Restriction ;
-                                                                                                     owl:onProperty :hatTeil ;
-                                                                                                     owl:someValuesFrom :Kontext
-                                                                                                   ]
-                                                                                                 ) ;
-                                                                              rdf:type owl:Class
-                                                                            ]
-                                                                            [ rdf:type owl:Restriction ;
-                                                                              owl:onProperty :hatTeil ;
-                                                                              owl:someValuesFrom :Eingangsprotokoll
-                                                                            ]
-                                                                          ) ;
-                                                       rdf:type owl:Class
-                                                     ]
-                                                   ) ;
-                                rdf:type owl:Class
-                              ] .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Fälschung
-:Fälschung rdf:type owl:Class ;
-           rdfs:subClassOf :Überlieferung .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Gold
-:Gold rdf:type owl:Class ;
-      rdfs:subClassOf :Metall .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Gültigkeitsdauer
-:Gültigkeitsdauer rdf:type owl:Class ;
-                  rdfs:subClassOf :InneresMerkmal .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Herrscherurkunde
-:Herrscherurkunde rdf:type owl:Class ;
-                  rdfs:subClassOf :ÖffentlicheUrkunde .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#InneresMerkmal
-:InneresMerkmal rdf:type owl:Class ;
-                owl:disjointWith :ÄußeresMerkmal .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Inscriptio
-:Inscriptio rdf:type owl:Class ;
-            rdfs:subClassOf :Formel .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Intitulatio
-:Intitulatio rdf:type owl:Class ;
-             rdfs:subClassOf :Formel .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Invocatio
-:Invocatio rdf:type owl:Class ;
-           rdfs:subClassOf :Formel .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Kanzleipersonal
-:Kanzleipersonal rdf:type owl:Class ;
-                 rdfs:subClassOf :Personal .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Kanzler
-:Kanzler rdf:type owl:Class ;
-         rdfs:subClassOf :Kanzleipersonal .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Kapitälchen
-:Kapitälchen rdf:type owl:Class ;
-             rdfs:subClassOf :Schrift .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Kontext
-:Kontext rdf:type owl:Class ;
-         owl:equivalentClass [ owl:intersectionOf ( :InneresMerkmal
-                                                    [ rdf:type owl:Restriction ;
-                                                      owl:onProperty :hatTeil ;
-                                                      owl:allValuesFrom [ rdf:type owl:Class ;
-                                                                          owl:unionOf ( :Arenga
-                                                                                        :Corroboratio
-                                                                                        :Dispositio
-                                                                                        :Narratio
-                                                                                        :Promulgatio
-                                                                                        :Sanctio
-                                                                                      )
-                                                                        ]
-                                                    ]
-                                                  ) ;
-                               rdf:type owl:Class
-                             ] .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Konzept
-:Konzept rdf:type owl:Class ;
-         owl:equivalentClass [ rdf:type owl:Restriction ;
-                               owl:onProperty :ausgefertigtIn ;
-                               owl:someValuesFrom :Original
-                             ] ;
-         rdfs:subClassOf :Überlieferung .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Kopie
-:Kopie rdf:type owl:Class ;
-       owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                    owl:onProperty :hatOriginal ;
-                                                    owl:someValuesFrom :Original
-                                                  ]
-                                                  [ rdf:type owl:Restriction ;
-                                                    owl:onProperty :istKopieVon ;
-                                                    owl:someValuesFrom [ rdf:type owl:Class ;
-                                                                         owl:unionOf ( :Kopie
-                                                                                       :Original
-                                                                                     )
-                                                                       ]
-                                                  ]
-                                                ) ;
-                             rdf:type owl:Class
-                           ] ;
-       rdfs:subClassOf :Überlieferung .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Littera
-:Littera rdf:type owl:Class ;
-         rdfs:subClassOf :Dokument .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Mandat
-:Mandat rdf:type owl:Class ;
-        rdfs:subClassOf :Dokument .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Material
-:Material rdf:type owl:Class ;
-          rdfs:subClassOf :ÄußeresMerkmal .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Metall
-:Metall rdf:type owl:Class ;
-        rdfs:subClassOf :Material .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Monarch
-:Monarch rdf:type owl:Class ;
-         rdfs:subClassOf :Aussteller ;
-         owl:disjointWith :Papst .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Monogramm
-:Monogramm rdf:type owl:Class ;
-           rdfs:subClassOf :ÄußeresMerkmal .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Narratio
-:Narratio rdf:type owl:Class ;
-          rdfs:subClassOf :Formel .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Notitia
-:Notitia rdf:type owl:Class ;
-         owl:equivalentClass [ owl:intersectionOf ( :Dokument
-                                                    [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                             owl:onProperty :bezeugt ;
-                                                                             owl:someValuesFrom :Rechtsinhalt
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kopie
+dipl:Kopie rdf:type owl:Class ;
+           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                        owl:onProperty dipl:hatOriginal ;
+                                                        owl:someValuesFrom dipl:Original
+                                                      ]
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty dipl:istKopieVon ;
+                                                        owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                             owl:unionOf ( dipl:Kopie
+                                                                                           dipl:Original
+                                                                                         )
                                                                            ]
-                                                                           [ rdf:type owl:Restriction ;
-                                                                             owl:onProperty :hatTeil ;
-                                                                             owl:someValuesFrom :Text
-                                                                           ]
-                                                                         ) ;
-                                                      rdf:type owl:Class
-                                                    ]
-                                                  ) ;
-                               rdf:type owl:Class
-                             ] ;
-         rdfs:subClassOf :Urkundenform .
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
+           rdfs:subClassOf dipl:Überlieferung .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Original
-:Original rdf:type owl:Class ;
-          rdfs:subClassOf :Überlieferung .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Littera
+dipl:Littera rdf:type owl:Class ;
+             rdfs:subClassOf dipl:Dokument .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Papier
-:Papier rdf:type owl:Class ;
-        rdfs:subClassOf :Material .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Mandat
+dipl:Mandat rdf:type owl:Class ;
+            rdfs:subClassOf dipl:Dokument .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Papst
-:Papst rdf:type owl:Class ;
-       rdfs:subClassOf :Aussteller .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Material
+dipl:Material rdf:type owl:Class ;
+              rdfs:subClassOf dipl:ÄußeresMerkmal .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Papsturkunde
-:Papsturkunde rdf:type owl:Class ;
-              rdfs:subClassOf :ÖffentlicheUrkunde .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Metall
+dipl:Metall rdf:type owl:Class ;
+            rdfs:subClassOf dipl:Material .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Papyrus
-:Papyrus rdf:type owl:Class ;
-         rdfs:subClassOf :Material .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Monarch
+dipl:Monarch rdf:type owl:Class ;
+             rdfs:subClassOf dipl:Aussteller ;
+             owl:disjointWith dipl:Papst .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Pergament
-:Pergament rdf:type owl:Class ;
-           rdfs:subClassOf :Material .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Monogramm
+dipl:Monogramm rdf:type owl:Class ;
+               rdfs:subClassOf dipl:GraphischesSymbol .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Personal
-:Personal rdf:type owl:Class .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Narratio
+dipl:Narratio rdf:type owl:Class ;
+              rdfs:subClassOf dipl:Formel .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Privaturkunde
-:Privaturkunde rdf:type owl:Class ;
-               rdfs:subClassOf :Dokument ;
-               owl:disjointWith :ÖffentlicheUrkunde .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Notitia
+dipl:Notitia rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( dipl:Dokument
+                                                        [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                 owl:onProperty dipl:bezeugt ;
+                                                                                 owl:someValuesFrom dipl:Rechtsinhalt
+                                                                               ]
+                                                                               [ rdf:type owl:Restriction ;
+                                                                                 owl:onProperty dipl:hatTeil ;
+                                                                                 owl:someValuesFrom dipl:Text
+                                                                               ]
+                                                                             ) ;
+                                                          rdf:type owl:Class
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:subClassOf dipl:Urkundenform .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Privileg
-:Privileg rdf:type owl:Class ;
-          rdfs:subClassOf :Dokument .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Original
+dipl:Original rdf:type owl:Class ;
+              rdfs:subClassOf dipl:Überlieferung .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Promulgatio
-:Promulgatio rdf:type owl:Class ;
-             rdfs:subClassOf :Formel .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Papier
+dipl:Papier rdf:type owl:Class ;
+            rdfs:subClassOf dipl:Material .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Rechtsinhalt
-:Rechtsinhalt rdf:type owl:Class .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Papst
+dipl:Papst rdf:type owl:Class ;
+           rdfs:subClassOf dipl:Aussteller .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Rekognitionszeichen
-:Rekognitionszeichen rdf:type owl:Class ;
-                     rdfs:subClassOf :ÄußeresMerkmal .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Papsturkunde
+dipl:Papsturkunde rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( dipl:Urkunde
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty dipl:hatAussteller ;
+                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                               owl:onClass dipl:Papst
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf dipl:ÖffentlicheUrkunde .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Rota
-:Rota rdf:type owl:Class ;
-      rdfs:subClassOf :ÄußeresMerkmal .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Papyrus
+dipl:Papyrus rdf:type owl:Class ;
+             rdfs:subClassOf dipl:Material .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Sanctio
-:Sanctio rdf:type owl:Class ;
-         rdfs:subClassOf :Formel .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Pergament
+dipl:Pergament rdf:type owl:Class ;
+               rdfs:subClassOf dipl:Material .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Schreiber
-:Schreiber rdf:type owl:Class ;
-           rdfs:subClassOf :Kanzleipersonal .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Person
+dipl:Person rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Schrift
-:Schrift rdf:type owl:Class ;
-         rdfs:subClassOf :ÄußeresMerkmal .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Privaturkunde
+dipl:Privaturkunde rdf:type owl:Class ;
+                   rdfs:subClassOf dipl:Dokument ;
+                   owl:disjointWith dipl:ÖffentlicheUrkunde .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Siegel
-:Siegel rdf:type owl:Class ;
-        rdfs:subClassOf :ÄußeresMerkmal .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Privileg
+dipl:Privileg rdf:type owl:Class ;
+              rdfs:subClassOf dipl:Dokument .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Siegelbefestigung
-:Siegelbefestigung rdf:type owl:Class ;
-                   rdfs:subClassOf :ÄußeresMerkmal .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Promulgatio
+dipl:Promulgatio rdf:type owl:Class ;
+                 rdfs:subClassOf dipl:Formel .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Subscriptio
-:Subscriptio rdf:type owl:Class ;
-             rdfs:subClassOf :Formel .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Rechtsinhalt
+dipl:Rechtsinhalt rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Text
-:Text rdf:type owl:Class ;
-      rdfs:subClassOf :InneresMerkmal ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :hatTeil ;
-                        owl:someValuesFrom :Formular
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :repräsentiert ;
-                        owl:someValuesFrom :Rechtsinhalt
-                      ] .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Rekognitionszeichen
+dipl:Rekognitionszeichen rdf:type owl:Class ;
+                         rdfs:subClassOf dipl:GraphischesSymbol .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Urkunde
-:Urkunde rdf:type owl:Class .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Rota
+dipl:Rota rdf:type owl:Class ;
+          rdfs:subClassOf dipl:GraphischesSymbol .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Urkundenform
-:Urkundenform rdf:type owl:Class .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Sanctio
+dipl:Sanctio rdf:type owl:Class ;
+             rdfs:subClassOf dipl:Formel .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Wachssiegel
-:Wachssiegel rdf:type owl:Class ;
-             rdfs:subClassOf :Siegel .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Schreiber
+dipl:Schreiber rdf:type owl:Class ;
+               rdfs:subClassOf dipl:Kanzleipersonal .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Zeuge
-:Zeuge rdf:type owl:Class ;
-       rdfs:subClassOf :InneresMerkmal ,
-                       :Personal ;
-       rdfs:comment "bei Thommen als inneres Merkmal" .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Schrift
+dipl:Schrift rdf:type owl:Class ;
+             rdfs:subClassOf dipl:ÄußeresMerkmal .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#ÄußeresMerkmal
-:ÄußeresMerkmal rdf:type owl:Class .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Siegel
+dipl:Siegel rdf:type owl:Class ;
+            rdfs:subClassOf dipl:ÄußeresMerkmal ;
+            dipl:vidID "502" .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#ÖffentlicheUrkunde
-:ÖffentlicheUrkunde rdf:type owl:Class ;
-                    rdfs:subClassOf :Dokument .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Siegelbefestigung
+dipl:Siegelbefestigung rdf:type owl:Class ;
+                       rdfs:subClassOf dipl:ÄußeresMerkmal .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/untitled-ontology-5#Überlieferung
-:Überlieferung rdf:type owl:Class ;
-               rdfs:subClassOf :Urkunde .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Subscriptio
+dipl:Subscriptio rdf:type owl:Class ;
+                 rdfs:subClassOf dipl:Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Text
+dipl:Text rdf:type owl:Class ;
+          rdfs:subClassOf dipl:InneresMerkmal ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty dipl:hatTeil ;
+                            owl:someValuesFrom dipl:Formular
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty dipl:repräsentiert ;
+                            owl:someValuesFrom dipl:Rechtsinhalt
+                          ] .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Urkunde
+dipl:Urkunde rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                   owl:onProperty dipl:repräsentiert ;
+                                   owl:someValuesFrom dipl:Rechtsinhalt
+                                 ] ;
+             dipl:vidID "3" .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Urkundenform
+dipl:Urkundenform rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Wachs
+dipl:Wachs rdf:type owl:Class ;
+           rdfs:subClassOf dipl:Material .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Wachssiegel
+dipl:Wachssiegel rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( dipl:Siegel
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty dipl:bestehtAusMaterial ;
+                                                              owl:someValuesFrom dipl:Wachs
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
+                 rdfs:subClassOf dipl:Siegel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Zeuge
+dipl:Zeuge rdf:type owl:Class ;
+           rdfs:subClassOf dipl:InneresMerkmal ,
+                           dipl:Person ;
+           rdfs:comment "bei Thommen als inneres Merkmal" .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#ÄußeresMerkmal
+dipl:ÄußeresMerkmal rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#ÖffentlicheUrkunde
+dipl:ÖffentlicheUrkunde rdf:type owl:Class ;
+                        rdfs:subClassOf dipl:Dokument .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Überlieferung
+dipl:Überlieferung rdf:type owl:Class ;
+                   rdfs:subClassOf dipl:Urkunde .
 
 
 #################################################################
@@ -598,74 +663,74 @@ owl:topObjectProperty rdf:type owl:ObjectProperty ,
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Apprecatio
-                :Arenga
-                :Corroboratio
-                :Datierung
-                :Dispositio
-                :Inscriptio
-                :Intitulatio
-                :Invocatio
-                :Narratio
-                :Promulgatio
-                :Sanctio
-                :Subscriptio
+  owl:members ( dipl:Apprecatio
+                dipl:Arenga
+                dipl:Corroboratio
+                dipl:Datierung
+                dipl:Dispositio
+                dipl:Inscriptio
+                dipl:Intitulatio
+                dipl:Invocatio
+                dipl:Narratio
+                dipl:Promulgatio
+                dipl:Sanctio
+                dipl:Subscriptio
               )
 ] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Aussteller
-                :Empfänger
-                :Kanzleipersonal
-                :Zeuge
+  owl:members ( dipl:Aussteller
+                dipl:Empfänger
+                dipl:Kanzleipersonal
+                dipl:Zeuge
               )
 ] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :BeneValete
-                :Chrismon
-                :Material
-                :Monogramm
-                :Rekognitionszeichen
-                :Rota
-                :Schrift
-                :Siegel
-                :Siegelbefestigung
+  owl:members ( dipl:BeneValete
+                dipl:Chrismon
+                dipl:Material
+                dipl:Monogramm
+                dipl:Rekognitionszeichen
+                dipl:Rota
+                dipl:Schrift
+                dipl:Siegel
+                dipl:Siegelbefestigung
               )
 ] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Diktator
-                :Kanzler
-                :Schreiber
+  owl:members ( dipl:Diktator
+                dipl:Kanzler
+                dipl:Schreiber
               )
 ] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Eingangsprotokoll
-                :Eschatokoll
-                :Kontext
+  owl:members ( dipl:Eingangsprotokoll
+                dipl:Eschatokoll
+                dipl:Kontext
               )
 ] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Fälschung
-                :Konzept
-                :Kopie
-                :Original
+  owl:members ( dipl:Fälschung
+                dipl:Konzept
+                dipl:Kopie
+                dipl:Original
               )
 ] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Papier
-                :Papyrus
-                :Pergament
+  owl:members ( dipl:Papier
+                dipl:Papyrus
+                dipl:Pergament
               )
 ] .
 
