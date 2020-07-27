@@ -55,15 +55,13 @@ dipl:bezeugt rdf:type owl:ObjectProperty ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#enthaltenIn
 dipl:enthaltenIn rdf:type owl:ObjectProperty ;
-                 owl:inverseOf dipl:enthältMerkmal ;
-                 rdf:type owl:AsymmetricProperty .
+                 owl:inverseOf dipl:enthältMerkmal .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#enthältMerkmal
 dipl:enthältMerkmal rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf owl:topObjectProperty ;
-                    rdf:type owl:AsymmetricProperty ,
-                             owl:TransitiveProperty ;
+                    rdf:type owl:TransitiveProperty ;
                     rdfs:range dipl:Merkmal .
 
 
@@ -71,6 +69,12 @@ dipl:enthältMerkmal rdf:type owl:ObjectProperty ;
 dipl:enthältText rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf dipl:enthältMerkmal ;
                  rdfs:range dipl:Text .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#fasstZusammen
+dipl:fasstZusammen rdf:type owl:ObjectProperty ;
+                   rdfs:domain dipl:Regest ;
+                   rdfs:range dipl:Rechtsinhalt .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#hatAussteller
@@ -106,6 +110,12 @@ dipl:istRepräsentiertDurch rdf:type owl:ObjectProperty ;
 dipl:repräsentiert rdf:type owl:ObjectProperty ;
                    rdfs:domain dipl:Urkunde ;
                    rdfs:range dipl:Rechtsinhalt .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#sammelt
+dipl:sammelt rdf:type owl:ObjectProperty ;
+             rdfs:domain dipl:Urkundensammlung ;
+             rdfs:range dipl:Urkunde .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#überliefertAls
@@ -236,11 +246,7 @@ dipl:Dokument rdf:type owl:Class ;
                                                          ]
                                                          [ rdf:type owl:Restriction ;
                                                            owl:onProperty dipl:enthältText ;
-                                                           owl:someValuesFrom dipl:InneresMerkmal
-                                                         ]
-                                                         [ rdf:type owl:Restriction ;
-                                                           owl:onProperty dipl:enthältText ;
-                                                           owl:someValuesFrom dipl:ÄußeresMerkmal
+                                                           owl:someValuesFrom dipl:Text
                                                          ]
                                                          [ rdf:type owl:Restriction ;
                                                            owl:onProperty dipl:bestehtAusMaterial ;
@@ -372,6 +378,11 @@ dipl:Herrscherurkunde rdf:type owl:Class ;
                       rdfs:subClassOf dipl:ÖffentlicheUrkunde .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Index
+dipl:Index rdf:type owl:Class ;
+           rdfs:subClassOf dipl:Urkundensammlung .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#InneresMerkmal
 dipl:InneresMerkmal rdf:type owl:Class ;
                     rdfs:subClassOf dipl:Merkmal ;
@@ -437,22 +448,26 @@ dipl:Konzept rdf:type owl:Class ;
              rdfs:subClassOf dipl:Überlieferung .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kopfregest
+dipl:Kopfregest rdf:type owl:Class ;
+                rdfs:subClassOf dipl:Regest ;
+                owl:disjointWith dipl:Vollregest .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kopialbuch
+dipl:Kopialbuch rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty dipl:sammelt ;
+                                      owl:someValuesFrom dipl:Kopie
+                                    ] ;
+                rdfs:subClassOf dipl:Urkundensammlung .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kopie
 dipl:Kopie rdf:type owl:Class ;
-           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                        owl:onProperty dipl:istKopieVonOriginal ;
-                                                        owl:someValuesFrom dipl:Original
-                                                      ]
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty dipl:istOriginalZuKopie ;
-                                                        owl:someValuesFrom [ rdf:type owl:Class ;
-                                                                             owl:unionOf ( dipl:Kopie
-                                                                                           dipl:Original
-                                                                                         )
-                                                                           ]
-                                                      ]
-                                                    ) ;
-                                 rdf:type owl:Class
+           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                 owl:onProperty dipl:istKopieVonOriginal ;
+                                 owl:someValuesFrom dipl:Original
                                ] ;
            rdfs:subClassOf dipl:Überlieferung .
 
@@ -580,6 +595,20 @@ dipl:Promulgatio rdf:type owl:Class ;
 dipl:Rechtsinhalt rdf:type owl:Class .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Regest
+dipl:Regest rdf:type owl:Class ;
+            rdfs:subClassOf dipl:Urkunde .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Regestenwerk
+dipl:Regestenwerk rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                        owl:onProperty dipl:sammelt ;
+                                        owl:someValuesFrom dipl:Regest
+                                      ] ;
+                  rdfs:subClassOf dipl:Urkundensammlung .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Rekognitionszeichen
 dipl:Rekognitionszeichen rdf:type owl:Class ;
                          rdfs:subClassOf dipl:GraphischesSymbol .
@@ -625,10 +654,6 @@ dipl:Subscriptio rdf:type owl:Class ;
 dipl:Text rdf:type owl:Class ;
           rdfs:subClassOf dipl:InneresMerkmal ,
                           [ rdf:type owl:Restriction ;
-                            owl:onProperty dipl:enthältText ;
-                            owl:someValuesFrom dipl:Formular
-                          ] ,
-                          [ rdf:type owl:Restriction ;
                             owl:onProperty dipl:repräsentiert ;
                             owl:someValuesFrom dipl:Rechtsinhalt
                           ] .
@@ -648,13 +673,31 @@ dipl:Urkunde rdf:type owl:Class ;
              dipl:vidID "3" .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Urkundenbuch
+dipl:Urkundenbuch rdf:type owl:Class ;
+                  rdfs:subClassOf dipl:Urkundensammlung .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Urkundenform
 dipl:Urkundenform rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Urkundensammlung
+dipl:Urkundensammlung rdf:type owl:Class ;
+                      owl:equivalentClass [ rdf:type owl:Restriction ;
+                                            owl:onProperty dipl:sammelt ;
+                                            owl:someValuesFrom dipl:Urkunde
+                                          ] .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Vidimus
 dipl:Vidimus rdf:type owl:Class ;
              rdfs:subClassOf dipl:Dokument .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Vollregest
+dipl:Vollregest rdf:type owl:Class ;
+                rdfs:subClassOf dipl:Regest .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Wachs
@@ -677,8 +720,7 @@ dipl:Wachssiegel rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Zeuge
 dipl:Zeuge rdf:type owl:Class ;
-           rdfs:subClassOf dipl:InneresMerkmal ,
-                           dipl:Person ;
+           rdfs:subClassOf dipl:Person ;
            rdfs:comment "bei Thommen als inneres Merkmal" .
 
 
@@ -762,6 +804,25 @@ dipl:Überlieferung rdf:type owl:Class ;
                 dipl:Konzept
                 dipl:Kopie
                 dipl:Original
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( dipl:Index
+                dipl:Kopialbuch
+                dipl:Regestenwerk
+                dipl:Urkundenbuch
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( dipl:Merkmal
+                dipl:Person
+                dipl:Rechtsinhalt
+                dipl:Regest
+                dipl:Urkundenform
               )
 ] .
 
