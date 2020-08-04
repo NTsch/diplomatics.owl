@@ -58,6 +58,12 @@ dipl:bezeugt rdf:type owl:ObjectProperty ;
              rdfs:range dipl:Rechtsinhalt .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#bezeugtEchtheitVon
+dipl:bezeugtEchtheitVon rdf:type owl:ObjectProperty ;
+                        rdfs:domain dipl:Beglaubigungsmittel ;
+                        rdfs:range dipl:Dokument .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#enthaltenIn
 dipl:enthaltenIn rdf:type owl:ObjectProperty ;
                  owl:inverseOf dipl:enthältMerkmal .
@@ -175,6 +181,11 @@ dipl:Arenga rdf:type owl:Class ;
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Aussteller
 dipl:Aussteller rdf:type owl:Class ;
                 rdfs:subClassOf dipl:Person .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Beglaubigungsmittel
+dipl:Beglaubigungsmittel rdf:type owl:Class ;
+                         rdfs:subClassOf dipl:Merkmal .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#BeneValete
@@ -421,7 +432,8 @@ dipl:Gold rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#GraphischesSymbol
 dipl:GraphischesSymbol rdf:type owl:Class ;
-                       rdfs:subClassOf dipl:ÄußeresMerkmal .
+                       rdfs:subClassOf dipl:Beglaubigungsmittel ,
+                                       dipl:ÄußeresMerkmal .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Gültigkeitsdauer
@@ -711,7 +723,8 @@ dipl:Schrift rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Siegel
 dipl:Siegel rdf:type owl:Class ;
-            rdfs:subClassOf dipl:ÄußeresMerkmal ;
+            rdfs:subClassOf dipl:Beglaubigungsmittel ,
+                            dipl:ÄußeresMerkmal ;
             dipl:vidID "502" .
 
 
@@ -736,7 +749,8 @@ dipl:Siegelbulle rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Subscriptio
 dipl:Subscriptio rdf:type owl:Class ;
-                 rdfs:subClassOf dipl:Formel .
+                 rdfs:subClassOf dipl:Beglaubigungsmittel ,
+                                 dipl:Formel .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Text
