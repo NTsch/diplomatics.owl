@@ -52,6 +52,12 @@ dipl:bestehtAusMaterial rdf:type owl:ObjectProperty ;
                         rdfs:range dipl:Material .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#beurkundet
+dipl:beurkundet rdf:type owl:ObjectProperty ;
+                rdfs:domain dipl:Aussteller ;
+                rdfs:range dipl:Rechtsinhalt .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#bezeugt
 dipl:bezeugt rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf dipl:repräsentiert ;
@@ -168,6 +174,11 @@ owl:topObjectProperty rdf:type owl:ObjectProperty ,
 #    Classes
 #################################################################
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Adressat
+dipl:Adressat rdf:type owl:Class ;
+              rdfs:subClassOf dipl:Person .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Apprecatio
 dipl:Apprecatio rdf:type owl:Class ;
                 rdfs:subClassOf dipl:Formel .
@@ -260,6 +271,11 @@ dipl:Carta rdf:type owl:Class ;
                                  rdf:type owl:Class
                                ] ;
            rdfs:subClassOf dipl:RechtlicheForm .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Chirograph
+dipl:Chirograph rdf:type owl:Class ;
+                rdfs:subClassOf dipl:Beglaubigungsmittel .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Chrismon
@@ -658,6 +674,11 @@ dipl:Pergament rdf:type owl:Class ;
 dipl:Person rdf:type owl:Class .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Privatperson
+dipl:Privatperson rdf:type owl:Class ;
+                  rdfs:subClassOf dipl:Aussteller .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Privaturkunde
 dipl:Privaturkunde rdf:type owl:Class ;
                    rdfs:subClassOf dipl:Dokument ;
@@ -765,6 +786,11 @@ dipl:Text rdf:type owl:Class ;
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Transsumpt
 dipl:Transsumpt rdf:type owl:Class ;
                 rdfs:subClassOf dipl:Dokument .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Urheber
+dipl:Urheber rdf:type owl:Class ;
+             rdfs:subClassOf dipl:Person .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Urkunde
