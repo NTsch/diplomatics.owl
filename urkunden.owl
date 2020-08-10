@@ -159,6 +159,13 @@ dipl:sammelt rdf:type owl:ObjectProperty ;
              rdfs:range dipl:Urkunde .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#verweistAufZeugen
+dipl:verweistAufZeugen rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf owl:topObjectProperty ;
+                       rdfs:domain dipl:Zeugenangabe ;
+                       rdfs:range dipl:Zeuge .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#überliefertAls
 dipl:überliefertAls rdf:type owl:ObjectProperty ;
                     rdfs:domain dipl:Urkunde ;
@@ -201,7 +208,8 @@ dipl:Beglaubigungsmittel rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#BeneValete
 dipl:BeneValete rdf:type owl:Class ;
-                rdfs:subClassOf dipl:GraphischesSymbol .
+                rdfs:subClassOf dipl:GraphischesSymbol ,
+                                dipl:Unterzeichnung .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Beschränkt
@@ -517,6 +525,11 @@ dipl:Kapitälchen rdf:type owl:Class ;
                  rdfs:subClassOf dipl:Schrift .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Klausel
+dipl:Klausel rdf:type owl:Class ;
+             rdfs:subClassOf dipl:Formel .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kontext
 dipl:Kontext rdf:type owl:Class ;
              owl:equivalentClass [ owl:intersectionOf ( dipl:InneresMerkmal
@@ -570,6 +583,16 @@ dipl:Kopie rdf:type owl:Class ;
            rdfs:subClassOf dipl:Überlieferung .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kursive
+dipl:Kursive rdf:type owl:Class ;
+             rdfs:subClassOf dipl:Schrift .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Ligatur
+dipl:Ligatur rdf:type owl:Class ;
+             rdfs:subClassOf dipl:Schrift .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Littera
 dipl:Littera rdf:type owl:Class ;
              rdfs:subClassOf dipl:Dokument .
@@ -602,6 +625,11 @@ dipl:Metall rdf:type owl:Class ;
             rdfs:subClassOf dipl:Material .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Minuskel
+dipl:Minuskel rdf:type owl:Class ;
+              rdfs:subClassOf dipl:Schrift .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Monarch
 dipl:Monarch rdf:type owl:Class ;
              rdfs:subClassOf dipl:Aussteller ;
@@ -610,7 +638,8 @@ dipl:Monarch rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Monogramm
 dipl:Monogramm rdf:type owl:Class ;
-               rdfs:subClassOf dipl:GraphischesSymbol .
+               rdfs:subClassOf dipl:GraphischesSymbol ,
+                               dipl:Unterzeichnung .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Narratio
@@ -719,12 +748,14 @@ dipl:Regestenwerk rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Rekognitionszeichen
 dipl:Rekognitionszeichen rdf:type owl:Class ;
-                         rdfs:subClassOf dipl:GraphischesSymbol .
+                         rdfs:subClassOf dipl:GraphischesSymbol ,
+                                         dipl:Unterzeichnung .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Rota
 dipl:Rota rdf:type owl:Class ;
-          rdfs:subClassOf dipl:GraphischesSymbol .
+          rdfs:subClassOf dipl:GraphischesSymbol ,
+                          dipl:Unterzeichnung .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Sanctio
@@ -770,8 +801,7 @@ dipl:Siegelbulle rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Subscriptio
 dipl:Subscriptio rdf:type owl:Class ;
-                 rdfs:subClassOf dipl:Beglaubigungsmittel ,
-                                 dipl:Formel .
+                 rdfs:subClassOf dipl:Formel .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Text
@@ -786,6 +816,22 @@ dipl:Text rdf:type owl:Class ;
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Transsumpt
 dipl:Transsumpt rdf:type owl:Class ;
                 rdfs:subClassOf dipl:Dokument .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Unterfertigung
+dipl:Unterfertigung rdf:type owl:Class ;
+                    rdfs:subClassOf dipl:Beglaubigungsmittel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Unterschrift
+dipl:Unterschrift rdf:type owl:Class ;
+                  rdfs:subClassOf dipl:Unterfertigung ;
+                  owl:disjointWith dipl:Unterzeichnung .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Unterzeichnung
+dipl:Unterzeichnung rdf:type owl:Class ;
+                    rdfs:subClassOf dipl:Unterfertigung .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Urheber
@@ -854,6 +900,16 @@ dipl:Zeuge rdf:type owl:Class ;
            rdfs:comment "bei Thommen als inneres Merkmal" .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Zeugenangabe
+dipl:Zeugenangabe rdf:type owl:Class ;
+                  rdfs:subClassOf dipl:InneresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Zeugenliste
+dipl:Zeugenliste rdf:type owl:Class ;
+                 rdfs:subClassOf dipl:Formel .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#ÄußeresMerkmal
 dipl:ÄußeresMerkmal rdf:type owl:Class ;
                     rdfs:subClassOf dipl:Merkmal .
@@ -909,6 +965,14 @@ dipl:Überlieferung rdf:type owl:Class ;
                 dipl:Schrift
                 dipl:Siegel
                 dipl:Siegelbefestigung
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( dipl:Chirograph
+                dipl:Siegel
+                dipl:Unterfertigung
               )
 ] .
 
