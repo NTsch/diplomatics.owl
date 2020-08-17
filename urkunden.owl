@@ -201,6 +201,12 @@ dipl:Aussteller rdf:type owl:Class ;
                 rdfs:subClassOf dipl:Person .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#BeglaubigteKopie
+dipl:BeglaubigteKopie rdf:type owl:Class ;
+                      rdfs:subClassOf dipl:Kopie ;
+                      owl:disjointWith dipl:EinfacheKopie .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Beglaubigungsmittel
 dipl:Beglaubigungsmittel rdf:type owl:Class ;
                          rdfs:subClassOf dipl:Merkmal .
@@ -360,6 +366,11 @@ dipl:Dokument rdf:type owl:Class ;
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Durchdruck
 dipl:Durchdruck rdf:type owl:Class ;
                 rdfs:subClassOf dipl:Siegelbefestigung .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#EinfacheKopie
+dipl:EinfacheKopie rdf:type owl:Class ;
+                   rdfs:subClassOf dipl:Kopie .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Eingangsprotokoll
