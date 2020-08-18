@@ -209,7 +209,7 @@ dipl:BeglaubigteKopie rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Beglaubigungsmittel
 dipl:Beglaubigungsmittel rdf:type owl:Class ;
-                         rdfs:subClassOf dipl:Merkmal .
+                         rdfs:subClassOf dipl:ÄußeresMerkmal .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#BeneValete
@@ -322,6 +322,11 @@ dipl:Dauerhaft rdf:type owl:Class ;
                rdfs:subClassOf dipl:Gültigkeitsdauer .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Deperditum
+dipl:Deperditum rdf:type owl:Class ;
+                rdfs:subClassOf dipl:Urkunde .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Diktator
 dipl:Diktator rdf:type owl:Class ;
               rdfs:subClassOf dipl:Kanzleipersonal .
@@ -404,6 +409,11 @@ dipl:Empfänger rdf:type owl:Class ;
 dipl:Empfängerüberlieferung rdf:type owl:Class ;
                             rdfs:subClassOf dipl:Varianten ;
                             owl:disjointWith dipl:Kanzleiüberlieferung .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Entwurf
+dipl:Entwurf rdf:type owl:Class ;
+             rdfs:subClassOf dipl:Überlieferung .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Eschatokoll
@@ -567,7 +577,7 @@ dipl:Konzept rdf:type owl:Class ;
                                    owl:onProperty dipl:ausgefertigtIn ;
                                    owl:someValuesFrom dipl:Original
                                  ] ;
-             rdfs:subClassOf dipl:Überlieferung .
+             rdfs:subClassOf dipl:Entwurf .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kopfregest
@@ -639,6 +649,11 @@ dipl:Metall rdf:type owl:Class ;
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Minuskel
 dipl:Minuskel rdf:type owl:Class ;
               rdfs:subClassOf dipl:Schrift .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Minute
+dipl:Minute rdf:type owl:Class ;
+            rdfs:subClassOf dipl:Entwurf .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Monarch
@@ -786,8 +801,7 @@ dipl:Schrift rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Siegel
 dipl:Siegel rdf:type owl:Class ;
-            rdfs:subClassOf dipl:Beglaubigungsmittel ,
-                            dipl:ÄußeresMerkmal ;
+            rdfs:subClassOf dipl:Beglaubigungsmittel ;
             dipl:vidID "502" .
 
 
