@@ -212,6 +212,12 @@ dipl:verfasstIn rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Actum
+dipl:Actum rdf:type owl:Class ;
+           rdfs:subClassOf dipl:Datierung ;
+           owl:disjointWith dipl:Datum .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Adressat
 dipl:Adressat rdf:type owl:Class ;
               rdfs:subClassOf dipl:Person .
@@ -264,7 +270,7 @@ dipl:Breve rdf:type owl:Class ;
                                                     ) ;
                                  rdf:type owl:Class
                                ] ;
-           rdfs:subClassOf dipl:Urkunde .
+           rdfs:subClassOf dipl:Notitia .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Bulle
@@ -333,6 +339,11 @@ dipl:Datierung rdf:type owl:Class ;
                rdfs:subClassOf dipl:Formel .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Datum
+dipl:Datum rdf:type owl:Class ;
+           rdfs:subClassOf dipl:Datierung .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Deperditum
 dipl:Deperditum rdf:type owl:Class ;
                 rdfs:subClassOf dipl:Urkunde .
@@ -345,20 +356,7 @@ dipl:Diktator rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Diplom
 dipl:Diplom rdf:type owl:Class ;
-            owl:equivalentClass [ owl:intersectionOf ( dipl:Urkunde
-                                                       [ rdf:type owl:Class ;
-                                                         owl:complementOf [ rdf:type owl:Class ;
-                                                                            owl:unionOf ( dipl:Papst
-                                                                                          [ rdf:type owl:Restriction ;
-                                                                                            owl:onProperty dipl:hatAussteller ;
-                                                                                            owl:someValuesFrom dipl:Monarch
-                                                                                          ]
-                                                                                        )
-                                                                          ]
-                                                       ]
-                                                     ) ;
-                                  rdf:type owl:Class
-                                ] ;
+            owl:equivalentClass dipl:Urkunde ;
             rdfs:subClassOf [ owl:intersectionOf ( dipl:Dokument
                                                    [ rdf:type owl:Restriction ;
                                                      owl:onProperty dipl:gültigBis ;
@@ -774,6 +772,23 @@ dipl:Privatperson rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Privaturkunde
 dipl:Privaturkunde rdf:type owl:Class ;
+                   owl:equivalentClass [ owl:intersectionOf ( dipl:Urkunde
+                                                              [ rdf:type owl:Class ;
+                                                                owl:complementOf [ rdf:type owl:Class ;
+                                                                                   owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty dipl:hatAussteller ;
+                                                                                                   owl:someValuesFrom dipl:Monarch
+                                                                                                 ]
+                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty dipl:hatAussteller ;
+                                                                                                   owl:someValuesFrom dipl:Papst
+                                                                                                 ]
+                                                                                               )
+                                                                                 ]
+                                                              ]
+                                                            ) ;
+                                         rdf:type owl:Class
+                                       ] ;
                    rdfs:subClassOf dipl:Dokument ;
                    owl:disjointWith dipl:ÖffentlicheUrkunde .
 
