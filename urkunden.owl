@@ -116,26 +116,33 @@ dipl:hatEmpfänger rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf dipl:erwähntPerson .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#istInseriertIn
-dipl:istInseriertIn rdf:type owl:ObjectProperty ;
-                    rdfs:domain dipl:Urkunde ;
-                    rdfs:range dipl:Transsumpt .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#hatVorurkunde
+dipl:hatVorurkunde rdf:type owl:ObjectProperty ;
+                   rdfs:domain dipl:Dokument ;
+                   rdfs:range dipl:Dokument .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#istKopieVonOriginal
-dipl:istKopieVonOriginal rdf:type owl:ObjectProperty ;
-                         owl:inverseOf dipl:istOriginalZuKopie ;
-                         rdf:type owl:FunctionalProperty ;
-                         rdfs:domain dipl:Kopie ;
-                         rdfs:range dipl:Original .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#inseriert
+dipl:inseriert rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf dipl:istAbschriftVonOriginal ;
+               rdfs:domain dipl:Transsumpt ;
+               rdfs:range dipl:Dokument .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#istOriginalZuKopie
-dipl:istOriginalZuKopie rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf owl:topObjectProperty ;
-                        rdf:type owl:InverseFunctionalProperty ;
-                        rdfs:domain dipl:Original ;
-                        rdfs:range dipl:Kopie .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#istAbschriftVonOriginal
+dipl:istAbschriftVonOriginal rdf:type owl:ObjectProperty ;
+                             owl:inverseOf dipl:istOriginalZuAbschrift ;
+                             rdf:type owl:FunctionalProperty ;
+                             rdfs:domain dipl:Abschrift ;
+                             rdfs:range dipl:Original .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#istOriginalZuAbschrift
+dipl:istOriginalZuAbschrift rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf owl:topObjectProperty ;
+                            rdf:type owl:InverseFunctionalProperty ;
+                            rdfs:domain dipl:Original ;
+                            rdfs:range dipl:Abschrift .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#istRepräsentiertDurch
@@ -162,6 +169,13 @@ dipl:verweistAufZeugen rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf owl:topObjectProperty ;
                        rdfs:domain dipl:Zeugenangabe ;
                        rdfs:range dipl:Zeuge .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#vidimiert
+dipl:vidimiert rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf dipl:istAbschriftVonOriginal ;
+               rdfs:domain dipl:Vidimus ;
+               rdfs:range dipl:Dokument .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#überliefertAls
@@ -212,6 +226,15 @@ dipl:verfasstIn rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Abschrift
+dipl:Abschrift rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty dipl:istAbschriftVonOriginal ;
+                                     owl:someValuesFrom dipl:Original
+                                   ] ;
+               rdfs:subClassOf dipl:Überlieferung .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Actum
 dipl:Actum rdf:type owl:Class ;
            rdfs:subClassOf dipl:Datierung ;
@@ -238,10 +261,10 @@ dipl:Aussteller rdf:type owl:Class ;
                 rdfs:subClassOf dipl:Person .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#BeglaubigteKopie
-dipl:BeglaubigteKopie rdf:type owl:Class ;
-                      rdfs:subClassOf dipl:Kopie ;
-                      owl:disjointWith dipl:EinfacheKopie .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#BeglaubigteAbschrift
+dipl:BeglaubigteAbschrift rdf:type owl:Class ;
+                          rdfs:subClassOf dipl:Abschrift ;
+                          owl:disjointWith dipl:EinfacheAbschrift .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Beglaubigungsmittel
@@ -403,9 +426,9 @@ dipl:Durchdruck rdf:type owl:Class ;
                 rdfs:subClassOf dipl:Siegelbefestigung .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#EinfacheKopie
-dipl:EinfacheKopie rdf:type owl:Class ;
-                   rdfs:subClassOf dipl:Kopie .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#EinfacheAbschrift
+dipl:EinfacheAbschrift rdf:type owl:Class ;
+                       rdfs:subClassOf dipl:Abschrift .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Eingangsprotokoll
@@ -468,6 +491,10 @@ dipl:Formel rdf:type owl:Class ;
             rdfs:subClassOf dipl:InneresMerkmal .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Formelsammlung
+dipl:Formelsammlung rdf:type owl:Class .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Formular
 dipl:Formular rdf:type owl:Class ;
               owl:equivalentClass [ owl:intersectionOf ( dipl:InneresMerkmal
@@ -507,8 +534,7 @@ dipl:Gold rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#GraphischesSymbol
 dipl:GraphischesSymbol rdf:type owl:Class ;
-                       rdfs:subClassOf dipl:Beglaubigungsmittel ,
-                                       dipl:ÄußeresMerkmal .
+                       rdfs:subClassOf dipl:ÄußeresMerkmal .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Herrscherurkunde
@@ -623,18 +649,9 @@ dipl:Kopfregest rdf:type owl:Class ;
 dipl:Kopialbuch rdf:type owl:Class ;
                 owl:equivalentClass [ rdf:type owl:Restriction ;
                                       owl:onProperty dipl:sammelt ;
-                                      owl:someValuesFrom dipl:Kopie
+                                      owl:someValuesFrom dipl:Abschrift
                                     ] ;
                 rdfs:subClassOf dipl:Urkundensammlung .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kopie
-dipl:Kopie rdf:type owl:Class ;
-           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                 owl:onProperty dipl:istKopieVonOriginal ;
-                                 owl:someValuesFrom dipl:Original
-                               ] ;
-           rdfs:subClassOf dipl:Überlieferung .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kursive
@@ -893,7 +910,7 @@ dipl:Text rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Transsumpt
 dipl:Transsumpt rdf:type owl:Class ;
-                rdfs:subClassOf dipl:Dokument .
+                rdfs:subClassOf dipl:BeglaubigteAbschrift .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Unterfertigung
@@ -946,7 +963,7 @@ dipl:Varianten rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Vidimus
 dipl:Vidimus rdf:type owl:Class ;
-             rdfs:subClassOf dipl:Dokument .
+             rdfs:subClassOf dipl:BeglaubigteAbschrift .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Vollregest
@@ -1008,6 +1025,15 @@ dipl:Überlieferung rdf:type owl:Class ;
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
+  owl:members ( dipl:Abschrift
+                dipl:Fälschung
+                dipl:Konzept
+                dipl:Original
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
   owl:members ( dipl:Apprecatio
                 dipl:Arenga
                 dipl:Corroboratio
@@ -1067,15 +1093,6 @@ dipl:Überlieferung rdf:type owl:Class ;
   owl:members ( dipl:Eingangsprotokoll
                 dipl:Eschatokoll
                 dipl:Kontext
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( dipl:Fälschung
-                dipl:Konzept
-                dipl:Kopie
-                dipl:Original
               )
 ] .
 
