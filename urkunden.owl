@@ -405,6 +405,11 @@ dipl:Dokument rdf:type owl:Class ;
               rdfs:subClassOf dipl:Urkunde .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Duplikat
+dipl:Duplikat rdf:type owl:Class ;
+              rdfs:subClassOf dipl:Mehrfachausfertigung .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Durchdruck
 dipl:Durchdruck rdf:type owl:Class ;
                 rdfs:subClassOf dipl:Siegelbefestigung .
@@ -533,6 +538,11 @@ dipl:Herrscherurkunde rdf:type owl:Class ;
                                             rdf:type owl:Class
                                           ] ;
                       rdfs:subClassOf dipl:ÖffentlicheUrkunde .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Imbreviatur
+dipl:Imbreviatur rdf:type owl:Class ;
+                 rdfs:subClassOf dipl:Überlieferung .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Index
@@ -668,6 +678,11 @@ dipl:Mandat rdf:type owl:Class ;
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Material
 dipl:Material rdf:type owl:Class ;
               rdfs:subClassOf dipl:ÄußeresMerkmal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Mehrfachausfertigung
+dipl:Mehrfachausfertigung rdf:type owl:Class ;
+                          rdfs:subClassOf dipl:Überlieferung .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Merkmal
@@ -1073,6 +1088,17 @@ dipl:Überlieferung rdf:type owl:Class ;
   owl:members ( dipl:Eingangsprotokoll
                 dipl:Eschatokoll
                 dipl:Kontext
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( dipl:Entwurf
+                dipl:Fälschung
+                dipl:Imbreviatur
+                dipl:Mehrfachausfertigung
+                dipl:Original
+                dipl:Varianten
               )
 ] .
 
