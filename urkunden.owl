@@ -35,16 +35,16 @@ dipl:befestigtMit rdf:type owl:ObjectProperty ,
                   rdfs:range dipl:Siegelbefestigung .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#beglaubigtDurch
+dipl:beglaubigtDurch rdf:type owl:ObjectProperty ;
+                     rdfs:domain dipl:Dokument ;
+                     rdfs:range dipl:Beglaubigungsmittel .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#begründet
 dipl:begründet rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf dipl:repräsentiert ;
                rdfs:range dipl:Rechtsinhalt .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#besiegeltMit
-dipl:besiegeltMit rdf:type owl:ObjectProperty ;
-                  rdfs:domain dipl:Dokument ;
-                  rdfs:range dipl:Siegel .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#bestehtAusMaterial
@@ -304,7 +304,7 @@ dipl:Breve rdf:type owl:Class ;
 dipl:Bulle rdf:type owl:Class ;
            owl:equivalentClass [ owl:intersectionOf ( dipl:Dokument
                                                       [ rdf:type owl:Restriction ;
-                                                        owl:onProperty dipl:besiegeltMit ;
+                                                        owl:onProperty dipl:beglaubigtDurch ;
                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                         owl:onClass dipl:Siegelbulle
                                                       ]
@@ -718,6 +718,22 @@ dipl:Monogramm rdf:type owl:Class ;
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Narratio
 dipl:Narratio rdf:type owl:Class ;
               rdfs:subClassOf dipl:Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Notar
+dipl:Notar rdf:type owl:Class ;
+           rdfs:subClassOf dipl:Kanzleipersonal .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Notariatsinstrument
+dipl:Notariatsinstrument rdf:type owl:Class ;
+                         rdfs:subClassOf dipl:Dokument .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Notariatssignet
+dipl:Notariatssignet rdf:type owl:Class ;
+                     rdfs:subClassOf dipl:GraphischesSymbol ,
+                                     dipl:Unterzeichnung .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Notitia
