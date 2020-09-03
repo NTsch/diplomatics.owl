@@ -448,7 +448,7 @@ dipl:Empfänger rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Empfängerüberlieferung
 dipl:Empfängerüberlieferung rdf:type owl:Class ;
-                            rdfs:subClassOf dipl:Varianten ;
+                            rdfs:subClassOf dipl:Überlieferungsform ;
                             owl:disjointWith dipl:Kanzleiüberlieferung .
 
 
@@ -585,7 +585,7 @@ dipl:Kanzleipersonal rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kanzleiüberlieferung
 dipl:Kanzleiüberlieferung rdf:type owl:Class ;
-                          rdfs:subClassOf dipl:Varianten .
+                          rdfs:subClassOf dipl:Überlieferungsform .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kanzler
@@ -966,11 +966,6 @@ dipl:Urkundensammlung rdf:type owl:Class ;
                                           ] .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Varianten
-dipl:Varianten rdf:type owl:Class ;
-               rdfs:subClassOf dipl:Überlieferung .
-
-
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Vidimus
 dipl:Vidimus rdf:type owl:Class ;
              rdfs:subClassOf dipl:BeglaubigteAbschrift .
@@ -1027,7 +1022,12 @@ dipl:ÖffentlicheUrkunde rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Überlieferung
 dipl:Überlieferung rdf:type owl:Class ;
-                   rdfs:subClassOf dipl:Urkunde .
+                   rdfs:subClassOf dipl:Dokument .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Überlieferungsform
+dipl:Überlieferungsform rdf:type owl:Class ;
+                        rdfs:subClassOf dipl:Überlieferung .
 
 
 #################################################################
@@ -1113,7 +1113,7 @@ dipl:Überlieferung rdf:type owl:Class ;
                 dipl:Imbreviatur
                 dipl:Mehrfachausfertigung
                 dipl:Original
-                dipl:Varianten
+                dipl:Überlieferungsform
               )
 ] .
 
