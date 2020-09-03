@@ -94,7 +94,7 @@ dipl:erwähntPerson rdf:type owl:ObjectProperty ;
                                                dipl:Formel
                                              )
                                ] ;
-                   rdfs:range dipl:Person .
+                   rdfs:range dipl:Rolle .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#fasstZusammen
@@ -107,7 +107,7 @@ dipl:fasstZusammen rdf:type owl:ObjectProperty ;
 dipl:hatAussteller rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf dipl:erwähntPerson ;
                    rdf:type owl:InverseFunctionalProperty ;
-                   rdfs:range dipl:Person .
+                   rdfs:range dipl:Rolle .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#hatEmpfänger
@@ -215,7 +215,6 @@ dipl:gültigBis rdf:type owl:DatatypeProperty ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#verfasstIn
 dipl:verfasstIn rdf:type owl:DatatypeProperty ;
-                rdfs:domain dipl:Dokument ;
                 rdfs:range [ rdf:type rdfs:Datatype ;
                              owl:oneOf [ rdf:type rdf:List ;
                                          rdf:first "objektiv" ;
@@ -248,7 +247,7 @@ dipl:Actum rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Adressat
 dipl:Adressat rdf:type owl:Class ;
-              rdfs:subClassOf dipl:Person .
+              rdfs:subClassOf dipl:Rolle .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Apprecatio
@@ -263,7 +262,7 @@ dipl:Arenga rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Aussteller
 dipl:Aussteller rdf:type owl:Class ;
-                rdfs:subClassOf dipl:Person .
+                rdfs:subClassOf dipl:Rolle .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#BeglaubigteAbschrift
@@ -444,7 +443,7 @@ dipl:Elongata rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Empfänger
 dipl:Empfänger rdf:type owl:Class ;
-               rdfs:subClassOf dipl:Person .
+               rdfs:subClassOf dipl:Rolle .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Empfängerüberlieferung
@@ -581,7 +580,7 @@ dipl:Invocatio rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kanzleipersonal
 dipl:Kanzleipersonal rdf:type owl:Class ;
-                     rdfs:subClassOf dipl:Person .
+                     rdfs:subClassOf dipl:Rolle .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kanzleiüberlieferung
@@ -777,10 +776,6 @@ dipl:Pergament rdf:type owl:Class ;
                rdfs:subClassOf dipl:Material .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Person
-dipl:Person rdf:type owl:Class .
-
-
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Privatperson
 dipl:Privatperson rdf:type owl:Class ;
                   rdfs:subClassOf dipl:Aussteller .
@@ -845,6 +840,10 @@ dipl:Regestenwerk rdf:type owl:Class ;
 dipl:Rekognitionszeichen rdf:type owl:Class ;
                          rdfs:subClassOf dipl:GraphischesSymbol ,
                                          dipl:Unterzeichnung .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Rolle
+dipl:Rolle rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Rota
@@ -926,7 +925,7 @@ dipl:Unterzeichnung rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Urheber
 dipl:Urheber rdf:type owl:Class ;
-             rdfs:subClassOf dipl:Person .
+             rdfs:subClassOf dipl:Rolle .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Urkunde
@@ -986,7 +985,7 @@ dipl:Wachssiegel rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Zeuge
 dipl:Zeuge rdf:type owl:Class ;
-           rdfs:subClassOf dipl:Person ;
+           rdfs:subClassOf dipl:Rolle ;
            rdfs:comment "bei Thommen als inneres Merkmal" .
 
 
@@ -1114,10 +1113,10 @@ dipl:Überlieferung rdf:type owl:Class ;
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( dipl:Merkmal
-                dipl:Person
                 dipl:RechtlicheForm
                 dipl:Rechtsinhalt
                 dipl:Regest
+                dipl:Rolle
               )
 ] .
 
