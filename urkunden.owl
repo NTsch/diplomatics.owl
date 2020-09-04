@@ -239,7 +239,8 @@ dipl:Abschrift rdf:type owl:Class ;
                                      owl:onProperty dipl:istAbschriftVonOriginal ;
                                      owl:someValuesFrom dipl:Original
                                    ] ;
-               rdfs:subClassOf dipl:Überlieferung .
+               rdfs:subClassOf dipl:Überlieferung ;
+               dipl:dipl:vidID "vid:VID_53" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Actum
@@ -267,6 +268,11 @@ dipl:Arenga rdf:type owl:Class ;
             dipl:dipl:vidID "vid:VID_196bis" .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Ausfertigungsform
+dipl:Ausfertigungsform rdf:type owl:Class ;
+                       rdfs:subClassOf dipl:Überlieferung .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Aussteller
 dipl:Aussteller rdf:type owl:Class ;
                 rdfs:subClassOf dipl:Rolle ;
@@ -276,7 +282,8 @@ dipl:Aussteller rdf:type owl:Class ;
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#BeglaubigteAbschrift
 dipl:BeglaubigteAbschrift rdf:type owl:Class ;
                           rdfs:subClassOf dipl:Abschrift ;
-                          owl:disjointWith dipl:EinfacheAbschrift .
+                          owl:disjointWith dipl:EinfacheAbschrift ;
+                          dipl:dipl:vidID "vid:VID_54" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Beglaubigungsmittel
@@ -313,7 +320,8 @@ dipl:Breve rdf:type owl:Class ;
                                                     ) ;
                                  rdf:type owl:Class
                                ] ;
-           rdfs:subClassOf dipl:Notitia .
+           rdfs:subClassOf dipl:Notitia ;
+           dipl:dipl:vidID "vid:VID_406" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Bulle
@@ -332,7 +340,8 @@ dipl:Bulle rdf:type owl:Class ;
                                                     ) ;
                                  rdf:type owl:Class
                                ] ;
-           rdfs:subClassOf dipl:Dokument .
+           rdfs:subClassOf dipl:Dokument ;
+           dipl:dipl:vidID "vid:VID_398" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Carta
@@ -349,7 +358,8 @@ dipl:Carta rdf:type owl:Class ;
                                                     ) ;
                                  rdf:type owl:Class
                                ] ;
-           rdfs:subClassOf dipl:RechtlicheForm .
+           rdfs:subClassOf dipl:Form ;
+           rdfs:comment "Urkunde die Präsens und der ersten Person verfasst ist, und in der der Aussteller ausdrücklich eine Verpflichtung übernimmt (Härtel 2011, S. 25-26)."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Chirograph
@@ -395,7 +405,8 @@ dipl:Datum rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Deperditum
 dipl:Deperditum rdf:type owl:Class ;
-                rdfs:subClassOf dipl:Urkunde .
+                rdfs:subClassOf dipl:Urkunde ;
+                rdfs:comment "Urkunde, welche nicht selbst erhalten ist, sondern aus Referenzen anderer Quellen bekannt ist."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Diktator
@@ -414,7 +425,8 @@ dipl:Diplom rdf:type owl:Class ;
                                                    ]
                                                  ) ;
                               rdf:type owl:Class
-                            ] .
+                            ] ;
+            dipl:dipl:vidID "vid:VID_386" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Dispositio
@@ -425,12 +437,14 @@ dipl:Dispositio rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Dokument
 dipl:Dokument rdf:type owl:Class ;
-              rdfs:subClassOf dipl:Urkunde .
+              rdfs:subClassOf dipl:Urkunde ;
+              rdfs:comment "Ein materielles Schriftstück."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Duplikat
 dipl:Duplikat rdf:type owl:Class ;
-              rdfs:subClassOf dipl:Mehrfachausfertigung .
+              rdfs:subClassOf dipl:Mehrfachausfertigung ;
+              dipl:dipl:vidID "vid:VID_45" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Durchdruck
@@ -440,7 +454,8 @@ dipl:Durchdruck rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#EinfacheAbschrift
 dipl:EinfacheAbschrift rdf:type owl:Class ;
-                       rdfs:subClassOf dipl:Abschrift .
+                       rdfs:subClassOf dipl:Abschrift ;
+                       dipl:dipl:vidID "vid:VID_55" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Eingangsprotokoll
@@ -473,15 +488,17 @@ dipl:Empfänger rdf:type owl:Class ;
                dipl:dipl:vidID "vid:VID_17" .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Empfängerüberlieferung
-dipl:Empfängerüberlieferung rdf:type owl:Class ;
-                            rdfs:subClassOf dipl:Überlieferungsform ;
-                            owl:disjointWith dipl:Kanzleiüberlieferung .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Empfängerausfertigung
+dipl:Empfängerausfertigung rdf:type owl:Class ;
+                           rdfs:subClassOf dipl:Ausfertigungsform ;
+                           owl:disjointWith dipl:Kanzleiausfertigung ;
+                           dipl:dipl:vidID "vid:VID_267" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Entwurf
 dipl:Entwurf rdf:type owl:Class ;
-             rdfs:subClassOf dipl:Überlieferung .
+             rdfs:subClassOf dipl:Überlieferung ;
+             dipl:dipl:vidID "vid:VID_349" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Eschatokoll
@@ -500,6 +517,11 @@ dipl:Eschatokoll rdf:type owl:Class ;
                                        rdf:type owl:Class
                                      ] ;
                  dipl:dipl:vidID "vid:VID_182a" .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Form
+dipl:Form rdf:type owl:Class ;
+          rdfs:comment "Bezieht sich auf die formalen Aspekte, in der die Urkunden verfasst ist, nicht auf eine rechtliche Funktion."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Formel
@@ -542,7 +564,8 @@ dipl:Formular rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Fälschung
 dipl:Fälschung rdf:type owl:Class ;
-               rdfs:subClassOf dipl:Überlieferung .
+               rdfs:subClassOf dipl:Überlieferung ;
+               dipl:dipl:vidID "vid:VID_111" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Gold
@@ -567,17 +590,20 @@ dipl:Herrscherurkunde rdf:type owl:Class ;
                                                                ) ;
                                             rdf:type owl:Class
                                           ] ;
-                      rdfs:subClassOf dipl:ÖffentlicheUrkunde .
+                      rdfs:subClassOf dipl:ÖffentlicheUrkunde ;
+                      dipl:dipl:vidID "vid:VID_390" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Imbreviatur
 dipl:Imbreviatur rdf:type owl:Class ;
-                 rdfs:subClassOf dipl:Überlieferung .
+                 rdfs:subClassOf dipl:Überlieferung ;
+                 dipl:dipl:vidID "vid:VID_357" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Index
 dipl:Index rdf:type owl:Class ;
-           rdfs:subClassOf dipl:Urkundensammlung .
+           rdfs:subClassOf dipl:Urkundensammlung ;
+           dipl:dipl:vidID "vid:VID_85" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#InneresMerkmal
@@ -613,15 +639,16 @@ dipl:Invocatio rdf:type owl:Class ;
                dipl:dipl:vidID "vid:VID_146" .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kanzleiausfertigung
+dipl:Kanzleiausfertigung rdf:type owl:Class ;
+                         rdfs:subClassOf dipl:Ausfertigungsform ;
+                         dipl:dipl:vidID "vid:VID_266" .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kanzleipersonal
 dipl:Kanzleipersonal rdf:type owl:Class ;
                      rdfs:subClassOf dipl:Rolle ;
                      rdfs:comment "Personen, die Teil einer Kanzlei sind."@de .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kanzleiüberlieferung
-dipl:Kanzleiüberlieferung rdf:type owl:Class ;
-                          rdfs:subClassOf dipl:Überlieferungsform .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kanzler
@@ -669,13 +696,15 @@ dipl:Konzept rdf:type owl:Class ;
                                    owl:onProperty dipl:ausgefertigtIn ;
                                    owl:someValuesFrom dipl:Original
                                  ] ;
-             rdfs:subClassOf dipl:Entwurf .
+             rdfs:subClassOf dipl:Entwurf ;
+             dipl:dipl:vidID "vid:VID_353" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kopfregest
 dipl:Kopfregest rdf:type owl:Class ;
                 rdfs:subClassOf dipl:Regest ;
-                owl:disjointWith dipl:Vollregest .
+                owl:disjointWith dipl:Vollregest ;
+                dipl:dipl:vidID "vid:VID_20" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kopialbuch
@@ -684,7 +713,8 @@ dipl:Kopialbuch rdf:type owl:Class ;
                                       owl:onProperty dipl:sammelt ;
                                       owl:someValuesFrom dipl:Abschrift
                                     ] ;
-                rdfs:subClassOf dipl:Urkundensammlung .
+                rdfs:subClassOf dipl:Urkundensammlung ;
+                dipl:dipl:vidID "vid:VID_74" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Kursive
@@ -699,7 +729,8 @@ dipl:Ligatur rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Littera
 dipl:Littera rdf:type owl:Class ;
-             rdfs:subClassOf dipl:Papsturkunde .
+             rdfs:subClassOf dipl:Papsturkunde ;
+             dipl:dipl:vidID "vid:VID_396" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Mandat
@@ -711,12 +742,14 @@ dipl:Mandat rdf:type owl:Class ;
                                                    ]
                                                  ) ;
                               rdf:type owl:Class
-                            ] .
+                            ] ;
+            dipl:dipl:vidID "vid:VID_403" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Mehrfachausfertigung
 dipl:Mehrfachausfertigung rdf:type owl:Class ;
-                          rdfs:subClassOf dipl:Überlieferung .
+                          rdfs:subClassOf dipl:Überlieferung ;
+                          dipl:dipl:vidID "vid:VID_45a" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Merkmal
@@ -736,7 +769,8 @@ dipl:Minuskel rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Minute
 dipl:Minute rdf:type owl:Class ;
-            rdfs:subClassOf dipl:Entwurf .
+            rdfs:subClassOf dipl:Entwurf ;
+            dipl:dipl:vidID "vid:VID_355" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Monarch
@@ -761,7 +795,8 @@ dipl:Narratio rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Notariatsinstrument
 dipl:Notariatsinstrument rdf:type owl:Class ;
-                         rdfs:subClassOf dipl:Dokument .
+                         rdfs:subClassOf dipl:Dokument ;
+                         dipl:dipl:vidID "vid:VID_295" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Notariatssignet
@@ -785,12 +820,14 @@ dipl:Notitia rdf:type owl:Class ;
                                                       ) ;
                                    rdf:type owl:Class
                                  ] ;
-             rdfs:subClassOf dipl:RechtlicheForm .
+             rdfs:subClassOf dipl:Form ;
+             dipl:dipl:vidID "vid:VID_387" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Original
 dipl:Original rdf:type owl:Class ;
-              rdfs:subClassOf dipl:Überlieferung .
+              rdfs:subClassOf dipl:Überlieferung ;
+              dipl:dipl:vidID "vid:VID_42" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Papier
@@ -814,7 +851,8 @@ dipl:Papsturkunde rdf:type owl:Class ;
                                                            ) ;
                                         rdf:type owl:Class
                                       ] ;
-                  rdfs:subClassOf dipl:ÖffentlicheUrkunde .
+                  rdfs:subClassOf dipl:ÖffentlicheUrkunde ;
+                  rdfs:comment "Urkunde, die im Auftrag eines Papstes im Zuge seiner öffentlichen Funktion ausgestellt wird."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Papyrus
@@ -853,12 +891,14 @@ dipl:Privaturkunde rdf:type owl:Class ;
                                          rdf:type owl:Class
                                        ] ;
                    rdfs:subClassOf dipl:Dokument ;
-                   owl:disjointWith dipl:ÖffentlicheUrkunde .
+                   owl:disjointWith dipl:ÖffentlicheUrkunde ;
+                   dipl:dipl:vidID "vid:VID_8b" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Privileg
 dipl:Privileg rdf:type owl:Class ;
-              rdfs:subClassOf dipl:Dokument .
+              rdfs:subClassOf dipl:Dokument ;
+              dipl:dipl:vidID "vid:VID_393" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Promulgatio
@@ -867,17 +907,21 @@ dipl:Promulgatio rdf:type owl:Class ;
                  dipl:dipl:vidID "vid:VID_196" .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#RechtlicheForm
-dipl:RechtlicheForm rdf:type owl:Class .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#PäpstlichesPrivileg
+dipl:PäpstlichesPrivileg rdf:type owl:Class ;
+                         rdfs:subClassOf dipl:Papsturkunde ;
+                         dipl:dipl:vidID "vid:VID_394" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Rechtsinhalt
-dipl:Rechtsinhalt rdf:type owl:Class .
+dipl:Rechtsinhalt rdf:type owl:Class ;
+                  dipl:dipl:vidID "vid:VID_4" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Regest
 dipl:Regest rdf:type owl:Class ;
-            rdfs:subClassOf dipl:Urkunde .
+            rdfs:subClassOf dipl:Urkunde ;
+            rdfs:comment "Enthält alle Formen von Regesten."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Regestenwerk
@@ -886,7 +930,8 @@ dipl:Regestenwerk rdf:type owl:Class ;
                                         owl:onProperty dipl:sammelt ;
                                         owl:someValuesFrom dipl:Regest
                                       ] ;
-                  rdfs:subClassOf dipl:Urkundensammlung .
+                  rdfs:subClassOf dipl:Urkundensammlung ;
+                  dipl:dipl:vidID "vid:VID_23" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Rekognitionszeichen
@@ -966,7 +1011,8 @@ dipl:Subscriptio rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Transsumpt
 dipl:Transsumpt rdf:type owl:Class ;
-                rdfs:subClassOf dipl:BeglaubigteAbschrift .
+                rdfs:subClassOf dipl:BeglaubigteAbschrift ;
+                dipl:dipl:vidID "vid:VID_66" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Unterfertigung
@@ -1000,12 +1046,13 @@ dipl:Urkunde rdf:type owl:Class ;
                                    owl:onProperty dipl:repräsentiert ;
                                    owl:someValuesFrom dipl:Rechtsinhalt
                                  ] ;
-             dipl:dipl:vidID "3" .
+             dipl:dipl:vidID "vid:VID_3" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Urkundenbuch
 dipl:Urkundenbuch rdf:type owl:Class ;
-                  rdfs:subClassOf dipl:Urkundensammlung .
+                  rdfs:subClassOf dipl:Urkundensammlung ;
+                  dipl:dipl:vidID "vid:VID_75" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Urkundensammlung
@@ -1013,17 +1060,20 @@ dipl:Urkundensammlung rdf:type owl:Class ;
                       owl:equivalentClass [ rdf:type owl:Restriction ;
                                             owl:onProperty dipl:sammelt ;
                                             owl:someValuesFrom dipl:Urkunde
-                                          ] .
+                                          ] ;
+                      dipl:dipl:vidID "vid:VID_28" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Vidimus
 dipl:Vidimus rdf:type owl:Class ;
-             rdfs:subClassOf dipl:BeglaubigteAbschrift .
+             rdfs:subClassOf dipl:BeglaubigteAbschrift ;
+             dipl:dipl:vidID "vid:VID_67" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Vollregest
 dipl:Vollregest rdf:type owl:Class ;
-                rdfs:subClassOf dipl:Regest .
+                rdfs:subClassOf dipl:Regest ;
+                rdfs:comment "Ausführlichere Form des herkömmlichen Kopfregestes,"@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Wachssiegel
@@ -1052,7 +1102,8 @@ dipl:ÄußeresMerkmal rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#ÖffentlicheUrkunde
 dipl:ÖffentlicheUrkunde rdf:type owl:Class ;
-                        rdfs:subClassOf dipl:Dokument .
+                        rdfs:subClassOf dipl:Dokument ;
+                        dipl:dipl:vidID "vid:VID_8a" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#ÖffentlicherNotar
@@ -1063,12 +1114,8 @@ dipl:ÖffentlicherNotar rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Überlieferung
 dipl:Überlieferung rdf:type owl:Class ;
-                   rdfs:subClassOf dipl:Dokument .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Überlieferungsform
-dipl:Überlieferungsform rdf:type owl:Class ;
-                        rdfs:subClassOf dipl:Überlieferung .
+                   rdfs:subClassOf dipl:Dokument ;
+                   dipl:dipl:vidID "vid:VID_24" .
 
 
 #################################################################
@@ -1097,6 +1144,17 @@ dipl:Überlieferungsform rdf:type owl:Class ;
                 dipl:Promulgatio
                 dipl:Sanctio
                 dipl:Subscriptio
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( dipl:Ausfertigungsform
+                dipl:Entwurf
+                dipl:Fälschung
+                dipl:Imbreviatur
+                dipl:Mehrfachausfertigung
+                dipl:Original
               )
 ] .
 
@@ -1149,12 +1207,11 @@ dipl:Überlieferungsform rdf:type owl:Class ;
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( dipl:Entwurf
-                dipl:Fälschung
-                dipl:Imbreviatur
-                dipl:Mehrfachausfertigung
-                dipl:Original
-                dipl:Überlieferungsform
+  owl:members ( dipl:Form
+                dipl:Merkmal
+                dipl:Rechtsinhalt
+                dipl:Regest
+                dipl:Rolle
               )
 ] .
 
@@ -1164,16 +1221,6 @@ dipl:Überlieferungsform rdf:type owl:Class ;
                 dipl:Kopialbuch
                 dipl:Regestenwerk
                 dipl:Urkundenbuch
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( dipl:Merkmal
-                dipl:RechtlicheForm
-                dipl:Rechtsinhalt
-                dipl:Regest
-                dipl:Rolle
               )
 ] .
 
