@@ -189,7 +189,7 @@ dipl:vidimiert rdf:type owl:ObjectProperty ;
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#überliefertAls
 dipl:überliefertAls rdf:type owl:ObjectProperty ;
                     rdfs:domain dipl:Urkunde ;
-                    rdfs:range dipl:Überlieferung .
+                    rdfs:range dipl:Manifestation .
 
 
 ###  http://www.w3.org/2002/07/owl#topObjectProperty
@@ -239,7 +239,7 @@ dipl:Abschrift rdf:type owl:Class ;
                                      owl:onProperty dipl:istAbschriftVonOriginal ;
                                      owl:someValuesFrom dipl:Original
                                    ] ;
-               rdfs:subClassOf dipl:Überlieferung ;
+               rdfs:subClassOf dipl:Manifestation ;
                dipl:dipl:vidID "vid:VID_53" .
 
 
@@ -270,7 +270,7 @@ dipl:Arenga rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Ausfertigungsform
 dipl:Ausfertigungsform rdf:type owl:Class ;
-                       rdfs:subClassOf dipl:Überlieferung .
+                       rdfs:subClassOf dipl:Manifestation .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Aussteller
@@ -320,7 +320,7 @@ dipl:Breve rdf:type owl:Class ;
                                                     ) ;
                                  rdf:type owl:Class
                                ] ;
-           rdfs:subClassOf dipl:Notitia ;
+           rdfs:subClassOf dipl:Papsturkunde ;
            dipl:dipl:vidID "vid:VID_406" .
 
 
@@ -497,7 +497,7 @@ dipl:Empfängerausfertigung rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Entwurf
 dipl:Entwurf rdf:type owl:Class ;
-             rdfs:subClassOf dipl:Überlieferung ;
+             rdfs:subClassOf dipl:Manifestation ;
              dipl:dipl:vidID "vid:VID_349" .
 
 
@@ -564,7 +564,7 @@ dipl:Formular rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Fälschung
 dipl:Fälschung rdf:type owl:Class ;
-               rdfs:subClassOf dipl:Überlieferung ;
+               rdfs:subClassOf dipl:Manifestation ;
                dipl:dipl:vidID "vid:VID_111" .
 
 
@@ -596,7 +596,7 @@ dipl:Herrscherurkunde rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Imbreviatur
 dipl:Imbreviatur rdf:type owl:Class ;
-                 rdfs:subClassOf dipl:Überlieferung ;
+                 rdfs:subClassOf dipl:Manifestation ;
                  dipl:dipl:vidID "vid:VID_357" .
 
 
@@ -746,9 +746,15 @@ dipl:Mandat rdf:type owl:Class ;
             dipl:dipl:vidID "vid:VID_403" .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Manifestation
+dipl:Manifestation rdf:type owl:Class ;
+                   rdfs:subClassOf dipl:Dokument ;
+                   rdfs:comment "Beschreibt die unterschiedlichen Formen, die eine Urkunde im Zuge ihres Werdegangs (sieve vid:VID_24) einnimmt und in denen dies erhalten bleiben kann."@de .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Mehrfachausfertigung
 dipl:Mehrfachausfertigung rdf:type owl:Class ;
-                          rdfs:subClassOf dipl:Überlieferung ;
+                          rdfs:subClassOf dipl:Manifestation ;
                           dipl:dipl:vidID "vid:VID_45a" .
 
 
@@ -826,7 +832,7 @@ dipl:Notitia rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Original
 dipl:Original rdf:type owl:Class ;
-              rdfs:subClassOf dipl:Überlieferung ;
+              rdfs:subClassOf dipl:Manifestation ;
               dipl:dipl:vidID "vid:VID_42" .
 
 
@@ -1110,12 +1116,6 @@ dipl:ÖffentlicheUrkunde rdf:type owl:Class ;
 dipl:ÖffentlicherNotar rdf:type owl:Class ;
                        rdfs:subClassOf dipl:Rolle ;
                        dipl:dipl:vidID "vid:VID_273a" .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Überlieferung
-dipl:Überlieferung rdf:type owl:Class ;
-                   rdfs:subClassOf dipl:Dokument ;
-                   dipl:dipl:vidID "vid:VID_24" .
 
 
 #################################################################
