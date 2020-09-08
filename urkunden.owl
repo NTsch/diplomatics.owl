@@ -25,20 +25,24 @@ dipl:dipl:vidID rdf:type owl:AnnotationProperty .
 dipl:ausgefertigtIn rdf:type owl:ObjectProperty ,
                              owl:FunctionalProperty ;
                     rdfs:domain dipl:Konzept ;
-                    rdfs:range dipl:Original .
+                    rdfs:range dipl:Original ;
+                    rdfs:comment "Verbindet ein Konzept mit dessen tatsächlicher Ausfertigung in der Form eines oder mehrerer Originale."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#befestigtMit
 dipl:befestigtMit rdf:type owl:ObjectProperty ,
                            owl:AsymmetricProperty ;
                   rdfs:domain dipl:Siegel ;
-                  rdfs:range dipl:Siegelbefestigung .
+                  rdfs:range dipl:Siegelbefestigung ;
+                  rdfs:comment "Art und Weise der Siegelbefestigung, meist Schnur, Lederstreifen oder Durchdruck."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#beglaubigtDurch
 dipl:beglaubigtDurch rdf:type owl:ObjectProperty ;
+                     owl:inverseOf dipl:bezeugtEchtheitVon ;
                      rdfs:domain dipl:Dokument ;
-                     rdfs:range dipl:Beglaubigungsmittel .
+                     rdfs:range dipl:Beglaubigungsmittel ;
+                     rdfs:comment "Verbindung zum Beglaubigungsmittel, welches dem Dokument seinen Rechtsstatus verleiht."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#begründet
@@ -49,7 +53,8 @@ dipl:begründet rdf:type owl:ObjectProperty ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#bestehtAusMaterial
 dipl:bestehtAusMaterial rdf:type owl:ObjectProperty ;
-                        rdfs:range dipl:Beschreibstoff .
+                        rdfs:range dipl:Material ;
+                        rdfs:comment "Anwendbar sowohl auf den Beschreibstoff der Urkunde als auch das Sigel."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#beurkundet
@@ -75,20 +80,24 @@ dipl:enthaltenIn rdf:type owl:ObjectProperty ;
                  owl:inverseOf dipl:enthältMerkmal .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#enthältFormel
+dipl:enthältFormel rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf dipl:enthältMerkmal ;
+                   rdfs:range dipl:Formel .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#enthältGrafik
+dipl:enthältGrafik rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf dipl:enthältMerkmal ;
+                   rdfs:range dipl:GrafischesSymbol .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#enthältMerkmal
 dipl:enthältMerkmal rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf owl:topObjectProperty ;
                     rdf:type owl:TransitiveProperty ;
-                    rdfs:range dipl:Merkmal .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#enthältText
-dipl:enthältText rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf dipl:enthältMerkmal .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#entsprichtVID
-dipl:entsprichtVID rdf:type owl:ObjectProperty .
+                    rdfs:range dipl:Merkmal ;
+                    rdfs:comment "Dient zur Nennung innerer und äußerer Merkmale eines Dokuments, und transitiv Merkmalen innerhalb anderer Merkmale im Dokument (z.B. Dokument enthält Formular enthält Dispositio)."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#erwähntPerson
@@ -98,13 +107,8 @@ dipl:erwähntPerson rdf:type owl:ObjectProperty ;
                                                dipl:Formel
                                              )
                                ] ;
-                   rdfs:range dipl:Rolle .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#fasstZusammen
-dipl:fasstZusammen rdf:type owl:ObjectProperty ;
-                   rdfs:domain dipl:Regest ;
-                   rdfs:range dipl:Rechtsinhalt .
+                   rdfs:range dipl:Rolle ;
+                   rdfs:comment "Nennungen von Personen im Urkundentext."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#hatAussteller
@@ -122,14 +126,16 @@ dipl:hatEmpfänger rdf:type owl:ObjectProperty ;
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#hatVorurkunde
 dipl:hatVorurkunde rdf:type owl:ObjectProperty ;
                    rdfs:domain dipl:Dokument ;
-                   rdfs:range dipl:Dokument .
+                   rdfs:range dipl:Dokument ;
+                   rdfs:comment "Verbindet ein Dokument mit einem früheren Dokument, welches als Vorlage diente."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#inseriert
 dipl:inseriert rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf dipl:istAbschriftVonOriginal ;
                rdfs:domain dipl:Transsumpt ;
-               rdfs:range dipl:Dokument .
+               rdfs:range dipl:Dokument ;
+               rdfs:comment "Verbindung von Transsumpt/Insert zum inserierten Original."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#istAbschriftVonOriginal
@@ -137,7 +143,8 @@ dipl:istAbschriftVonOriginal rdf:type owl:ObjectProperty ;
                              owl:inverseOf dipl:istOriginalZuAbschrift ;
                              rdf:type owl:FunctionalProperty ;
                              rdfs:domain dipl:Abschrift ;
-                             rdfs:range dipl:Original .
+                             rdfs:range dipl:Original ;
+                             rdfs:comment "Verbindung von einer Kopie zu ihrem Original."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#istOriginalZuAbschrift
@@ -155,16 +162,31 @@ dipl:istRepräsentiertDurch rdf:type owl:ObjectProperty ;
                            rdfs:range dipl:Urkunde .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#manifestiertAls
+dipl:manifestiertAls rdf:type owl:ObjectProperty ;
+                     rdfs:domain dipl:Urkunde ;
+                     rdfs:range dipl:Manifestation ;
+                     rdfs:comment "Die Art und Weise, in der ein Dokument erhalten ist."@de .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#regestiert
+dipl:regestiert rdf:type owl:ObjectProperty ;
+                rdfs:domain dipl:Regest ;
+                rdfs:range dipl:Rechtsinhalt .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#repräsentiert
 dipl:repräsentiert rdf:type owl:ObjectProperty ;
                    rdfs:domain dipl:Urkunde ;
-                   rdfs:range dipl:Rechtsinhalt .
+                   rdfs:range dipl:Rechtsinhalt ;
+                   rdfs:comment "Verbindet abstrakten Rechtsinhalt mit einer konkreten Handlung oder einem konkreten Dokument, welches diesem Form gibt."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#sammelt
 dipl:sammelt rdf:type owl:ObjectProperty ;
              rdfs:domain dipl:Urkundensammlung ;
-             rdfs:range dipl:Urkunde .
+             rdfs:range dipl:Urkunde ;
+             rdfs:comment "Verwendet für die verschiedenen Arten von Urkundensammlungen, welche Urkunden gemäß unterschiedlicher Kriterien zusammenbringen."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#verfasstIn
@@ -175,7 +197,7 @@ dipl:verfasstIn rdf:type owl:ObjectProperty ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#verweistAufZeugen
 dipl:verweistAufZeugen rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf owl:topObjectProperty ;
+                       rdfs:subPropertyOf dipl:erwähntPerson ;
                        rdfs:range dipl:Zeuge .
 
 
@@ -183,13 +205,8 @@ dipl:verweistAufZeugen rdf:type owl:ObjectProperty ;
 dipl:vidimiert rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf dipl:istAbschriftVonOriginal ;
                rdfs:domain dipl:Vidimus ;
-               rdfs:range dipl:Dokument .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#überliefertAls
-dipl:überliefertAls rdf:type owl:ObjectProperty ;
-                    rdfs:domain dipl:Urkunde ;
-                    rdfs:range dipl:Manifestation .
+               rdfs:range dipl:Dokument ;
+               rdfs:comment "Verbindung vom Vidimus zum vidimierten Original."@de .
 
 
 ###  http://www.w3.org/2002/07/owl#topObjectProperty
@@ -294,14 +311,14 @@ dipl:Beglaubigungsmittel rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#BeneValete
 dipl:BeneValete rdf:type owl:Class ;
-                rdfs:subClassOf dipl:GraphischesSymbol ,
+                rdfs:subClassOf dipl:GrafischesSymbol ,
                                 dipl:Unterzeichnung ;
                 dipl:dipl:vidID "vid:VID_155" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Beschreibstoff
 dipl:Beschreibstoff rdf:type owl:Class ;
-                    rdfs:subClassOf dipl:ÄußeresMerkmal ;
+                    rdfs:subClassOf dipl:Material ;
                     dipl:dipl:vidID "vid:VID_133" .
 
 
@@ -370,7 +387,7 @@ dipl:Chirograph rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Chrismon
 dipl:Chrismon rdf:type owl:Class ;
-              rdfs:subClassOf dipl:GraphischesSymbol .
+              rdfs:subClassOf dipl:GrafischesSymbol .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Corroboratio
@@ -462,7 +479,7 @@ dipl:EinfacheAbschrift rdf:type owl:Class ;
 dipl:Eingangsprotokoll rdf:type owl:Class ;
                        owl:equivalentClass [ owl:intersectionOf ( dipl:InneresMerkmal
                                                                   [ rdf:type owl:Restriction ;
-                                                                    owl:onProperty dipl:enthältText ;
+                                                                    owl:onProperty dipl:enthältFormel ;
                                                                     owl:allValuesFrom [ rdf:type owl:Class ;
                                                                                         owl:unionOf ( dipl:Inscriptio
                                                                                                       dipl:Intitulatio
@@ -505,7 +522,7 @@ dipl:Entwurf rdf:type owl:Class ;
 dipl:Eschatokoll rdf:type owl:Class ;
                  owl:equivalentClass [ owl:intersectionOf ( dipl:InneresMerkmal
                                                             [ rdf:type owl:Restriction ;
-                                                              owl:onProperty dipl:enthältText ;
+                                                              owl:onProperty dipl:enthältFormel ;
                                                               owl:allValuesFrom [ rdf:type owl:Class ;
                                                                                   owl:unionOf ( dipl:Apprecatio
                                                                                                 dipl:Datierung
@@ -539,18 +556,18 @@ dipl:Formelsammlung rdf:type owl:Class ;
 dipl:Formular rdf:type owl:Class ;
               owl:equivalentClass [ owl:intersectionOf ( dipl:InneresMerkmal
                                                          [ owl:intersectionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                                                         owl:onProperty dipl:enthältText ;
+                                                                                                         owl:onProperty dipl:enthältFormel ;
                                                                                                          owl:someValuesFrom dipl:Eschatokoll
                                                                                                        ]
                                                                                                        [ rdf:type owl:Restriction ;
-                                                                                                         owl:onProperty dipl:enthältText ;
+                                                                                                         owl:onProperty dipl:enthältFormel ;
                                                                                                          owl:someValuesFrom dipl:Kontext
                                                                                                        ]
                                                                                                      ) ;
                                                                                   rdf:type owl:Class
                                                                                 ]
                                                                                 [ rdf:type owl:Restriction ;
-                                                                                  owl:onProperty dipl:enthältText ;
+                                                                                  owl:onProperty dipl:enthältFormel ;
                                                                                   owl:someValuesFrom dipl:Eingangsprotokoll
                                                                                 ]
                                                                               ) ;
@@ -573,10 +590,10 @@ dipl:Gold rdf:type owl:Class ;
           rdfs:subClassOf dipl:Metall .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#GraphischesSymbol
-dipl:GraphischesSymbol rdf:type owl:Class ;
-                       rdfs:subClassOf dipl:ÄußeresMerkmal ;
-                       dipl:dipl:vidID "vid:VID_145" .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#GrafischesSymbol
+dipl:GrafischesSymbol rdf:type owl:Class ;
+                      rdfs:subClassOf dipl:ÄußeresMerkmal ;
+                      dipl:dipl:vidID "vid:VID_145" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Herrscherurkunde
@@ -673,7 +690,7 @@ dipl:Klausel rdf:type owl:Class ;
 dipl:Kontext rdf:type owl:Class ;
              owl:equivalentClass [ owl:intersectionOf ( dipl:InneresMerkmal
                                                         [ rdf:type owl:Restriction ;
-                                                          owl:onProperty dipl:enthältText ;
+                                                          owl:onProperty dipl:enthältFormel ;
                                                           owl:allValuesFrom [ rdf:type owl:Class ;
                                                                               owl:unionOf ( dipl:Arenga
                                                                                             dipl:Corroboratio
@@ -752,6 +769,11 @@ dipl:Manifestation rdf:type owl:Class ;
                    rdfs:comment "Beschreibt die unterschiedlichen Formen, die eine Urkunde im Zuge ihres Werdegangs (sieve vid:VID_24) einnimmt und in denen dies erhalten bleiben kann."@de .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Material
+dipl:Material rdf:type owl:Class ;
+              rdfs:subClassOf dipl:ÄußeresMerkmal .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Mehrfachausfertigung
 dipl:Mehrfachausfertigung rdf:type owl:Class ;
                           rdfs:subClassOf dipl:Manifestation ;
@@ -765,7 +787,7 @@ dipl:Merkmal rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Metall
 dipl:Metall rdf:type owl:Class ;
-            rdfs:subClassOf dipl:Beschreibstoff .
+            rdfs:subClassOf dipl:Material .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Minuskel
@@ -788,7 +810,7 @@ dipl:Monarch rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Monogramm
 dipl:Monogramm rdf:type owl:Class ;
-               rdfs:subClassOf dipl:GraphischesSymbol ,
+               rdfs:subClassOf dipl:GrafischesSymbol ,
                                dipl:Unterzeichnung ;
                dipl:dipl:vidID "vid:VID_148" .
 
@@ -807,7 +829,7 @@ dipl:Notariatsinstrument rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Notariatssignet
 dipl:Notariatssignet rdf:type owl:Class ;
-                     rdfs:subClassOf dipl:GraphischesSymbol ,
+                     rdfs:subClassOf dipl:GrafischesSymbol ,
                                      dipl:Unterzeichnung ;
                      dipl:dipl:vidID "vid:VID_151" .
 
@@ -942,7 +964,7 @@ dipl:Regestenwerk rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Rekognitionszeichen
 dipl:Rekognitionszeichen rdf:type owl:Class ;
-                         rdfs:subClassOf dipl:GraphischesSymbol ,
+                         rdfs:subClassOf dipl:GrafischesSymbol ,
                                          dipl:Unterzeichnung ;
                          dipl:dipl:vidID "vid:VID_149" .
 
@@ -954,7 +976,7 @@ dipl:Rolle rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Rota
 dipl:Rota rdf:type owl:Class ;
-          rdfs:subClassOf dipl:GraphischesSymbol ,
+          rdfs:subClassOf dipl:GrafischesSymbol ,
                           dipl:Unterzeichnung ;
           dipl:dipl:vidID "vid:VID_153" .
 
@@ -1116,6 +1138,13 @@ dipl:ÖffentlicheUrkunde rdf:type owl:Class ;
 dipl:ÖffentlicherNotar rdf:type owl:Class ;
                        rdfs:subClassOf dipl:Rolle ;
                        dipl:dipl:vidID "vid:VID_273a" .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+dipl:verfasstIn rdfs:comment "Bezieht sich auf die Sprache des Dokuments, nicht den Verfassungsort."@de .
 
 
 #################################################################
