@@ -14,7 +14,8 @@
 #################################################################
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#dipl:vidID
-dipl:dipl:vidID rdf:type owl:AnnotationProperty .
+dipl:dipl:vidID rdf:type owl:AnnotationProperty ;
+                rdfs:comment "Verweis auf den der Klasse entsprechenden Eintrag im Vocabulaire international de la diplomatique (https://www.cei.lmu.de/VID/)."@de .
 
 
 #################################################################
@@ -48,7 +49,8 @@ dipl:beglaubigtDurch rdf:type owl:ObjectProperty ;
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#begründet
 dipl:begründet rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf dipl:repräsentiert ;
-               rdfs:range dipl:Rechtsinhalt .
+               rdfs:range dipl:Rechtsinhalt ;
+               rdfs:comment "Beschreibt Urkunden, die Rechtsinhalte begründen."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#bestehtAusMaterial
@@ -66,7 +68,8 @@ dipl:beurkundet rdf:type owl:ObjectProperty ;
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#bezeugt
 dipl:bezeugt rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf dipl:repräsentiert ;
-             rdfs:range dipl:Rechtsinhalt .
+             rdfs:range dipl:Rechtsinhalt ;
+             rdfs:comment "Beschreibt Urkunden, die Rechtsinhalte bezeugen, aber nicht selbst begründen."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#bezeugtEchtheitVon
@@ -189,10 +192,11 @@ dipl:sammelt rdf:type owl:ObjectProperty ;
              rdfs:comment "Verwendet für die verschiedenen Arten von Urkundensammlungen, welche Urkunden gemäß unterschiedlicher Kriterien zusammenbringen."@de .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#verfasstIn
-dipl:verfasstIn rdf:type owl:ObjectProperty ;
-                rdfs:domain dipl:Dokument ;
-                rdfs:range dipl:Sprache .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#verfasstInSprache
+dipl:verfasstInSprache rdf:type owl:ObjectProperty ;
+                       rdfs:domain dipl:Dokument ;
+                       rdfs:range dipl:Sprache ;
+                       rdfs:comment "Bezieht sich auf die Sprache des Dokuments, im Gegensatz zur objektiven oder subjektiven Form (siehe verfasstInForm)."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#verweistAufZeugen
@@ -218,6 +222,21 @@ owl:topObjectProperty rdf:type owl:ObjectProperty ,
 #    Data properties
 #################################################################
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#datiert
+dipl:datiert rdf:type owl:DatatypeProperty ;
+             rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#datiertActum
+dipl:datiertActum rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf dipl:datiert .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#datiertDatum
+dipl:datiertDatum rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf dipl:datiert .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#gültigBis
 dipl:gültigBis rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf owl:topDataProperty ;
@@ -230,20 +249,22 @@ dipl:gültigBis rdf:type owl:DatatypeProperty ;
                                                    rdf:rest rdf:nil
                                                  ]
                                       ]
-                          ] .
+                          ] ;
+               rdfs:comment "Dient zur Unterscheidung zwischen Urkunden, welche eine zeitlich eingeschränkte Funktion haben (z.B. Mandate), und Urkunden, welche dauerhafte neue Rechtszustände begründen (z.B. Diplome)."@de .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#verfasstIn
-dipl:verfasstIn rdf:type owl:DatatypeProperty ;
-                rdfs:range [ rdf:type rdfs:Datatype ;
-                             owl:oneOf [ rdf:type rdf:List ;
-                                         rdf:first "objektiv" ;
-                                         rdf:rest [ rdf:type rdf:List ;
-                                                    rdf:first "subjektiv" ;
-                                                    rdf:rest rdf:nil
-                                                  ]
-                                       ]
-                           ] .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#verfasstInForm
+dipl:verfasstInForm rdf:type owl:DatatypeProperty ;
+                    rdfs:range [ rdf:type rdfs:Datatype ;
+                                 owl:oneOf [ rdf:type rdf:List ;
+                                             rdf:first "objektiv" ;
+                                             rdf:rest [ rdf:type rdf:List ;
+                                                        rdf:first "subjektiv" ;
+                                                        rdf:rest rdf:nil
+                                                      ]
+                                           ]
+                               ] ;
+                    rdfs:comment "Unterscheidet zwischen objektiver (dritte Person) und subjektiver (erste Person) Fassung."@de .
 
 
 #################################################################
@@ -258,13 +279,6 @@ dipl:Abschrift rdf:type owl:Class ;
                                    ] ;
                rdfs:subClassOf dipl:Manifestation ;
                dipl:dipl:vidID "vid:VID_53" .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Actum
-dipl:Actum rdf:type owl:Class ;
-           rdfs:subClassOf dipl:Datierung ;
-           owl:disjointWith dipl:Datum ;
-           rdfs:comment "Zeitpunkt der Rechtshandlung."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Adressat
@@ -369,7 +383,7 @@ dipl:Carta rdf:type owl:Class ;
                                                         owl:someValuesFrom dipl:Rechtsinhalt
                                                       ]
                                                       [ rdf:type owl:Restriction ;
-                                                        owl:onProperty dipl:verfasstIn ;
+                                                        owl:onProperty dipl:verfasstInForm ;
                                                         owl:hasValue "subjektiv"
                                                       ]
                                                     ) ;
@@ -406,18 +420,6 @@ dipl:CumFiloCanapis rdf:type owl:Class ;
 dipl:CumFiloSerico rdf:type owl:Class ;
                    rdfs:subClassOf dipl:Siegelbefestigung ;
                    rdfs:comment "Befestigung durch Seidenband."@de .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Datierung
-dipl:Datierung rdf:type owl:Class ;
-               rdfs:subClassOf dipl:Formel ;
-               dipl:dipl:vidID "vid:VID_559" .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Datum
-dipl:Datum rdf:type owl:Class ;
-           rdfs:subClassOf dipl:Datierung ;
-           rdfs:comment "Zeitpunkt der Aushändigung des Dokuments."@de .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Deperditum
@@ -520,19 +522,6 @@ dipl:Entwurf rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Eschatokoll
 dipl:Eschatokoll rdf:type owl:Class ;
-                 owl:equivalentClass [ owl:intersectionOf ( dipl:InneresMerkmal
-                                                            [ rdf:type owl:Restriction ;
-                                                              owl:onProperty dipl:enthältFormel ;
-                                                              owl:allValuesFrom [ rdf:type owl:Class ;
-                                                                                  owl:unionOf ( dipl:Apprecatio
-                                                                                                dipl:Datierung
-                                                                                                dipl:Subscriptio
-                                                                                              )
-                                                                                ]
-                                                            ]
-                                                          ) ;
-                                       rdf:type owl:Class
-                                     ] ;
                  dipl:dipl:vidID "vid:VID_182a" .
 
 
@@ -842,7 +831,7 @@ dipl:Notitia rdf:type owl:Class ;
                                                           owl:someValuesFrom dipl:Rechtsinhalt
                                                         ]
                                                         [ rdf:type owl:Restriction ;
-                                                          owl:onProperty dipl:verfasstIn ;
+                                                          owl:onProperty dipl:verfasstInForm ;
                                                           owl:hasValue "objektiv"
                                                         ]
                                                       ) ;
@@ -1141,10 +1130,21 @@ dipl:ÖffentlicherNotar rdf:type owl:Class ;
 
 
 #################################################################
-#    Annotations
+#    Individuals
 #################################################################
 
-dipl:verfasstIn rdfs:comment "Bezieht sich auf die Sprache des Dokuments, nicht den Verfassungsort."@de .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#BertholdVonAquileia
+dipl:BertholdVonAquileia rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein> rdf:type owl:NamedIndividual ,
+                                                                                           dipl:Carta ,
+                                                                                           dipl:Mandat ;
+                                                                                  dipl:hatAussteller dipl:BertholdVonAquileia ;
+                                                                                  dipl:datiert "1240-01-31T00:00:00"^^xsd:dateTime ;
+                                                                                  dipl:verfasstInForm "subjektiv" ;
+                                                                                  rdfs:comment "Entnommen aus Härtel: Notarielle und kirchliche Urkunden im frühen und hohen Mittelalter, S. 389-391."@de .
 
 
 #################################################################
@@ -1156,23 +1156,6 @@ dipl:verfasstIn rdfs:comment "Bezieht sich auf die Sprache des Dokuments, nicht 
                 dipl:Fälschung
                 dipl:Konzept
                 dipl:Original
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( dipl:Apprecatio
-                dipl:Arenga
-                dipl:Corroboratio
-                dipl:Datierung
-                dipl:Dispositio
-                dipl:Inscriptio
-                dipl:Intitulatio
-                dipl:Invocatio
-                dipl:Narratio
-                dipl:Promulgatio
-                dipl:Sanctio
-                dipl:Subscriptio
               )
 ] .
 
