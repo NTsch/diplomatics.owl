@@ -960,6 +960,11 @@ dipl:Rota rdf:type owl:Class ;
           dipl:dipl:vidID "vid:VID_153" .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Salutatio
+dipl:Salutatio rdf:type owl:Class ;
+               rdfs:subClassOf dipl:Formel .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Sanctio
 dipl:Sanctio rdf:type owl:Class ;
              rdfs:subClassOf dipl:Formel ;
@@ -1112,6 +1117,11 @@ dipl:ÖffentlicherNotar rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#B._..._patriarcha
+dipl:B._..._patriarcha rdf:type owl:NamedIndividual ,
+                                dipl:Intitulatio .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#BertholdVonAquileia
 dipl:BertholdVonAquileia rdf:type owl:NamedIndividual .
 
@@ -1124,6 +1134,11 @@ dipl:CumFiloCanapis rdf:type owl:NamedIndividual ,
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#CumFiloSerico
 dipl:CumFiloSerico rdf:type owl:NamedIndividual ,
                             dipl:Siegelbefestigung .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Cum_..._tenemur
+dipl:Cum_..._tenemur rdf:type owl:NamedIndividual ,
+                              dipl:Arenga .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Durchdruck
@@ -1162,12 +1177,38 @@ dipl:alle_Pfarrer_in_Krain rdf:type owl:NamedIndividual ,
                                     dipl:Empfänger .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#dilectis_..._domino
+dipl:dilectis_..._domino rdf:type owl:NamedIndividual ,
+                                  dipl:Inscriptio .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#querela_..._bona_sua
+dipl:querela_..._bona_sua rdf:type owl:NamedIndividual ,
+                                   dipl:Narratio .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#salutem_..._domino
+dipl:salutem_..._domino rdf:type owl:NamedIndividual ,
+                                 dipl:Salutatio .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#universitati_..._requisti
+dipl:universitati_..._requisti rdf:type owl:NamedIndividual ,
+                                        dipl:Dispositio .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein
 <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein> rdf:type owl:NamedIndividual ,
                                                                                            dipl:Carta ,
                                                                                            dipl:Mandat ;
                                                                                   dipl:beglaubigtDurch dipl:Wachssiegel ;
                                                                                   dipl:bestehtAusMaterial dipl:Pergament ;
+                                                                                  dipl:enthältFormel dipl:B._..._patriarcha ,
+                                                                                                     dipl:Cum_..._tenemur ,
+                                                                                                     dipl:dilectis_..._domino ,
+                                                                                                     dipl:querela_..._bona_sua ,
+                                                                                                     dipl:salutem_..._domino ,
+                                                                                                     dipl:universitati_..._requisti ;
                                                                                   dipl:hatAussteller dipl:BertholdVonAquileia ;
                                                                                   dipl:hatAusstellungsort dipl:Stein ;
                                                                                   dipl:hatEmpfänger dipl:alle_Pfarrer_in_Krain ;
