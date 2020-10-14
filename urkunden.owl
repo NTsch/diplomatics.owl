@@ -243,6 +243,12 @@ dipl:datiertDatum rdf:type owl:DatatypeProperty ;
                   rdfs:subPropertyOf dipl:datiert .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#enthältText
+dipl:enthältText rdf:type owl:DatatypeProperty ;
+                 rdfs:domain dipl:Formel ;
+                 rdfs:range xsd:string .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#gültigBis
 dipl:gültigBis rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf owl:topDataProperty ;
@@ -1117,13 +1123,9 @@ dipl:ÖffentlicherNotar rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#B._..._patriarcha
-dipl:B._..._patriarcha rdf:type owl:NamedIndividual ,
-                                dipl:Intitulatio .
-
-
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#BertholdVonAquileia
-dipl:BertholdVonAquileia rdf:type owl:NamedIndividual .
+dipl:BertholdVonAquileia rdf:type owl:NamedIndividual ,
+                                  dipl:Aussteller .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#CumFiloCanapis
@@ -1134,11 +1136,6 @@ dipl:CumFiloCanapis rdf:type owl:NamedIndividual ,
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#CumFiloSerico
 dipl:CumFiloSerico rdf:type owl:NamedIndividual ,
                             dipl:Siegelbefestigung .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Cum_..._tenemur
-dipl:Cum_..._tenemur rdf:type owl:NamedIndividual ,
-                              dipl:Arenga .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Durchdruck
@@ -1161,6 +1158,11 @@ dipl:Pergament rdf:type owl:NamedIndividual ,
                         dipl:Beschreibstoff .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Pfarrer_in_Krain
+dipl:Pfarrer_in_Krain rdf:type owl:NamedIndividual ,
+                               dipl:Empfänger .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Stein
 dipl:Stein rdf:type owl:NamedIndividual ,
                     dipl:Ausstellungsort .
@@ -1172,50 +1174,61 @@ dipl:Wachssiegel rdf:type owl:NamedIndividual ,
                  dipl:befestigtMit dipl:CumFiloCanapis .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#alle_Pfarrer_in_Krain
-dipl:alle_Pfarrer_in_Krain rdf:type owl:NamedIndividual ,
-                                    dipl:Empfänger .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#dilectis_..._domino
-dipl:dilectis_..._domino rdf:type owl:NamedIndividual ,
-                                  dipl:Inscriptio .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#querela_..._bona_sua
-dipl:querela_..._bona_sua rdf:type owl:NamedIndividual ,
-                                   dipl:Narratio .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#salutem_..._domino
-dipl:salutem_..._domino rdf:type owl:NamedIndividual ,
-                                 dipl:Salutatio .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#universitati_..._requisti
-dipl:universitati_..._requisti rdf:type owl:NamedIndividual ,
-                                        dipl:Dispositio .
-
-
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein
 <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein> rdf:type owl:NamedIndividual ,
                                                                                            dipl:Carta ,
                                                                                            dipl:Mandat ;
                                                                                   dipl:beglaubigtDurch dipl:Wachssiegel ;
                                                                                   dipl:bestehtAusMaterial dipl:Pergament ;
-                                                                                  dipl:enthältFormel dipl:B._..._patriarcha ,
-                                                                                                     dipl:Cum_..._tenemur ,
-                                                                                                     dipl:dilectis_..._domino ,
-                                                                                                     dipl:querela_..._bona_sua ,
-                                                                                                     dipl:salutem_..._domino ,
-                                                                                                     dipl:universitati_..._requisti ;
+                                                                                  dipl:enthältFormel <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Arenga> ,
+                                                                                                     <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Dispositio> ,
+                                                                                                     <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Inscriptio> ,
+                                                                                                     <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Intitulatio> ,
+                                                                                                     <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Narratio> ,
+                                                                                                     <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Salutatio> ;
                                                                                   dipl:hatAussteller dipl:BertholdVonAquileia ;
                                                                                   dipl:hatAusstellungsort dipl:Stein ;
-                                                                                  dipl:hatEmpfänger dipl:alle_Pfarrer_in_Krain ;
+                                                                                  dipl:hatEmpfänger dipl:Pfarrer_in_Krain ;
                                                                                   dipl:datiert "1240-01-31T00:00:00"^^xsd:dateTime ;
                                                                                   dipl:verfasstInForm "subjektiv" ;
                                                                                   dipl:verfasstInSprache "lat"^^xsd:language ;
                                                                                   rdfs:comment "Entnommen aus Härtel: Notarielle und kirchliche Urkunden im frühen und hohen Mittelalter, S. 389-391."@de .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Arenga
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Arenga> rdf:type owl:NamedIndividual ,
+                                                                                                  dipl:Arenga ;
+                                                                                         dipl:enthältText "Cum [...] tenemur"^^xsd:string .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Dispositio
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Dispositio> rdf:type owl:NamedIndividual ,
+                                                                                                      dipl:Dispositio ;
+                                                                                             dipl:enthältText "universitati [...] requisti"^^xsd:string .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Inscriptio
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Inscriptio> rdf:type owl:NamedIndividual ,
+                                                                                                      dipl:Inscriptio ;
+                                                                                             dipl:enthältText "dilectis [...] domino"^^xsd:string .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Intitulatio
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Intitulatio> rdf:type owl:NamedIndividual ,
+                                                                                                       dipl:Intitulatio ;
+                                                                                              dipl:enthältText "B. [...] patriarcha"^^xsd:string .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Narratio
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Narratio> rdf:type owl:NamedIndividual ,
+                                                                                                    dipl:Narratio ;
+                                                                                           dipl:enthältText "querela [...] bona sua"^^xsd:string .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Salutatio
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Salutatio> rdf:type owl:NamedIndividual ,
+                                                                                                     dipl:Salutatio ;
+                                                                                            dipl:enthältText "salutem [...] domino"^^xsd:string .
 
 
 #################################################################
