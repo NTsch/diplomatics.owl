@@ -185,6 +185,12 @@ dipl:manifestiertAls rdf:type owl:ObjectProperty ;
                      rdfs:comment "Die Art und Weise, in der ein Dokument erhalten ist."@de .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#nenntZeugen
+dipl:nenntZeugen rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf dipl:erwähntPerson ;
+                 rdfs:range dipl:Zeuge .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#regestiert
 dipl:regestiert rdf:type owl:ObjectProperty ;
                 rdfs:domain dipl:Regest ;
@@ -203,12 +209,6 @@ dipl:sammelt rdf:type owl:ObjectProperty ;
              rdfs:domain dipl:Urkundensammlung ;
              rdfs:range dipl:Urkunde ;
              rdfs:comment "Verwendet für die verschiedenen Arten von Urkundensammlungen, welche Urkunden gemäß unterschiedlicher Kriterien zusammenbringen."@de .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#verweistAufZeugen
-dipl:verweistAufZeugen rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf dipl:erwähntPerson ;
-                       rdfs:range dipl:Zeuge .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#vidimiert
@@ -346,13 +346,6 @@ dipl:Beglaubigungsmittel rdf:type owl:Class ;
                          dipl:dipl:vidID "vid:VID_9a" .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#BeneValete
-dipl:BeneValete rdf:type owl:Class ;
-                rdfs:subClassOf dipl:GrafischesSymbol ,
-                                dipl:Unterzeichnung ;
-                dipl:dipl:vidID "vid:VID_155" .
-
-
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Beschreibstoff
 dipl:Beschreibstoff rdf:type owl:Class ;
                     rdfs:subClassOf dipl:Material ;
@@ -420,11 +413,6 @@ dipl:Carta rdf:type owl:Class ;
 dipl:Chirograph rdf:type owl:Class ;
                 rdfs:subClassOf dipl:Beglaubigungsmittel ;
                 dipl:dipl:vidID "vid:VID_44" .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Chrismon
-dipl:Chrismon rdf:type owl:Class ;
-              rdfs:subClassOf dipl:GrafischesSymbol .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Corroboratio
@@ -804,13 +792,6 @@ dipl:Monarch rdf:type owl:Class ;
              rdfs:comment "Überbegriff für Könige, Kaiser und Fürsten."@de .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Monogramm
-dipl:Monogramm rdf:type owl:Class ;
-               rdfs:subClassOf dipl:GrafischesSymbol ,
-                               dipl:Unterzeichnung ;
-               dipl:dipl:vidID "vid:VID_148" .
-
-
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Narratio
 dipl:Narratio rdf:type owl:Class ;
               rdfs:subClassOf dipl:Formel ;
@@ -821,13 +802,6 @@ dipl:Narratio rdf:type owl:Class ;
 dipl:Notariatsinstrument rdf:type owl:Class ;
                          rdfs:subClassOf dipl:Dokument ;
                          dipl:dipl:vidID "vid:VID_295" .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Notariatssignet
-dipl:Notariatssignet rdf:type owl:Class ;
-                     rdfs:subClassOf dipl:GrafischesSymbol ,
-                                     dipl:Unterzeichnung ;
-                     dipl:dipl:vidID "vid:VID_151" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Notitia
@@ -947,23 +921,9 @@ dipl:Regestenwerk rdf:type owl:Class ;
                   dipl:dipl:vidID "vid:VID_23" .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Rekognitionszeichen
-dipl:Rekognitionszeichen rdf:type owl:Class ;
-                         rdfs:subClassOf dipl:GrafischesSymbol ,
-                                         dipl:Unterzeichnung ;
-                         dipl:dipl:vidID "vid:VID_149" .
-
-
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Rolle
 dipl:Rolle rdf:type owl:Class ;
            rdfs:comment "Eine Person, welche bei der Anfertigung, Benutzung oder Aufbewahrung einer Urkunde eine bestimmte Rolle einnimmt."@de .
-
-
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Rota
-dipl:Rota rdf:type owl:Class ;
-          rdfs:subClassOf dipl:GrafischesSymbol ,
-                          dipl:Unterzeichnung ;
-          dipl:dipl:vidID "vid:VID_153" .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Salutatio
@@ -1123,9 +1083,25 @@ dipl:ÖffentlicherNotar rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Aclinus
+dipl:Aclinus rdf:type owl:NamedIndividual ,
+                      dipl:Zeuge .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#BeneValete
+dipl:BeneValete rdf:type owl:NamedIndividual ,
+                         dipl:GrafischesSymbol ,
+                         dipl:Unterzeichnung .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#BertholdVonAquileia
 dipl:BertholdVonAquileia rdf:type owl:NamedIndividual ,
                                   dipl:Aussteller .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Chrismon
+dipl:Chrismon rdf:type owl:NamedIndividual ,
+                       dipl:GrafischesSymbol .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#CumFiloCanapis
@@ -1143,6 +1119,45 @@ dipl:Durchdruck rdf:type owl:NamedIndividual ,
                          dipl:Siegelbefestigung .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#GotselmVonLangres
+dipl:GotselmVonLangres rdf:type owl:NamedIndividual ,
+                                dipl:Aussteller ,
+                                dipl:Zeuge ;
+                       dipl:hatAussteller dipl:GotselmVonLangres .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Hugo
+dipl:Hugo rdf:type owl:NamedIndividual ,
+                   dipl:Zeuge .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#KapitelVonLangres
+dipl:KapitelVonLangres rdf:type owl:NamedIndividual ,
+                                dipl:Empfänger .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Langres
+dipl:Langres rdf:type owl:NamedIndividual ,
+                      dipl:Ausstellungsort .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Monogramm
+dipl:Monogramm rdf:type owl:NamedIndividual ,
+                        dipl:GrafischesSymbol ,
+                        dipl:Unterzeichnung .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Notariatssignet
+dipl:Notariatssignet rdf:type owl:NamedIndividual ,
+                              dipl:GrafischesSymbol ,
+                              dipl:Unterzeichnung .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Odon
+dipl:Odon rdf:type owl:NamedIndividual ,
+                   dipl:Zeuge .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Papier
 dipl:Papier rdf:type owl:NamedIndividual ,
                      dipl:Beschreibstoff .
@@ -1158,14 +1173,36 @@ dipl:Pergament rdf:type owl:NamedIndividual ,
                         dipl:Beschreibstoff .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Pfarrer_in_Krain
-dipl:Pfarrer_in_Krain rdf:type owl:NamedIndividual ,
-                               dipl:Empfänger .
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#PfarrerInKrain
+dipl:PfarrerInKrain rdf:type owl:NamedIndividual ,
+                             dipl:Empfänger .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Rekognitionszeichen
+dipl:Rekognitionszeichen rdf:type owl:NamedIndividual ,
+                                  dipl:GrafischesSymbol ,
+                                  dipl:Unterzeichnung .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Rota
+dipl:Rota rdf:type owl:NamedIndividual ,
+                   dipl:GrafischesSymbol ,
+                   dipl:Unterzeichnung .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Stein
 dipl:Stein rdf:type owl:NamedIndividual ,
                     dipl:Ausstellungsort .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Vualdricus
+dipl:Vualdricus rdf:type owl:NamedIndividual ,
+                         dipl:Zeuge .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Vualterius
+dipl:Vualterius rdf:type owl:NamedIndividual ,
+                         dipl:Zeuge .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Wachssiegel
@@ -1188,7 +1225,7 @@ dipl:Wachssiegel rdf:type owl:NamedIndividual ,
                                                                                                      <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Salutatio> ;
                                                                                   dipl:hatAussteller dipl:BertholdVonAquileia ;
                                                                                   dipl:hatAusstellungsort dipl:Stein ;
-                                                                                  dipl:hatEmpfänger dipl:Pfarrer_in_Krain ;
+                                                                                  dipl:hatEmpfänger dipl:PfarrerInKrain ;
                                                                                   dipl:datiert "1240-01-31T00:00:00"^^xsd:dateTime ;
                                                                                   dipl:verfasstInForm "subjektiv" ;
                                                                                   dipl:verfasstInSprache "lat"^^xsd:language ;
@@ -1231,6 +1268,60 @@ dipl:Wachssiegel rdf:type owl:NamedIndividual ,
                                                                                             dipl:enthältText "salutem [...] domino"^^xsd:string .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres> rdf:type owl:NamedIndividual ,
+                                                                                            dipl:Notitia ;
+                                                                                   dipl:beglaubigtDurch dipl:Rekognitionszeichen ;
+                                                                                   dipl:bestehtAusMaterial dipl:Pergament ;
+                                                                                   dipl:enthältFormel <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres_Corroboratio> ,
+                                                                                                      <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres_Dispositio> ,
+                                                                                                      <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres_Invocatio> ,
+                                                                                                      <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres_Narratio> ,
+                                                                                                      <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres_Zeugenliste> ;
+                                                                                   dipl:enthältGrafik dipl:Chrismon ;
+                                                                                   dipl:hatAussteller dipl:GotselmVonLangres ;
+                                                                                   dipl:hatAusstellungsort dipl:Langres ;
+                                                                                   dipl:hatEmpfänger dipl:KapitelVonLangres ;
+                                                                                   dipl:datiert "0906-04-31T00:00:00"^^xsd:dateTime ;
+                                                                                   dipl:verfasstInForm "objektiv" ;
+                                                                                   dipl:verfasstInSprache "lat"^^xsd:language ;
+                                                                                   rdfs:comment "Entnommen aus Härtel: Notarielle und kirchliche Urkunden im frühen und hohen Mittelalter, S. 347-349."@de .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres_Corroboratio
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres_Corroboratio> rdf:type owl:NamedIndividual ,
+                                                                                                         dipl:Corroboratio ;
+                                                                                                dipl:enthältText "atque [...] tradiderunt"^^xsd:string .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres_Dispositio
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres_Dispositio> rdf:type owl:NamedIndividual ,
+                                                                                                       dipl:Dispositio .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres_Invocatio
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres_Invocatio> rdf:type owl:NamedIndividual ,
+                                                                                                      dipl:Invocatio ;
+                                                                                             dipl:enthältGrafik dipl:Chrismon .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres_Narratio
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres_Narratio> rdf:type owl:NamedIndividual ,
+                                                                                                     dipl:Narratio ;
+                                                                                            dipl:enthältText "veniens [...] retinebat."^^xsd:string .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres_Zeugenliste
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres_Zeugenliste> rdf:type owl:NamedIndividual ,
+                                                                                                        dipl:Zeugenliste ;
+                                                                                               dipl:nenntZeugen dipl:Aclinus ,
+                                                                                                                dipl:GotselmVonLangres ,
+                                                                                                                dipl:Hugo ,
+                                                                                                                dipl:Odon ,
+                                                                                                                dipl:Vualdricus ,
+                                                                                                                dipl:Vualterius .
+
+
 #################################################################
 #    General axioms
 #################################################################
@@ -1260,20 +1351,6 @@ dipl:Wachssiegel rdf:type owl:NamedIndividual ,
                 dipl:Empfänger
                 dipl:Kanzleipersonal
                 dipl:Zeuge
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( dipl:BeneValete
-                dipl:Beschreibstoff
-                dipl:Chrismon
-                dipl:Monogramm
-                dipl:Rekognitionszeichen
-                dipl:Rota
-                dipl:Schrift
-                dipl:Siegel
-                dipl:Siegelbefestigung
               )
 ] .
 
