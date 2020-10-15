@@ -1019,13 +1019,6 @@ dipl:Unterfertigung rdf:type owl:Class ;
                     rdfs:comment "Alle Formen von Unterschriften und Unterzeichnungen, welche in der Subscriptio."@de .
 
 
-###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Unterschrift
-dipl:Unterschrift rdf:type owl:Class ;
-                  rdfs:subClassOf dipl:Unterfertigung ;
-                  owl:disjointWith dipl:Unterzeichnung ;
-                  rdfs:comment "Schriftliche Unterfertigung"@de .
-
-
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Unterzeichnung
 dipl:Unterzeichnung rdf:type owl:Class ;
                     rdfs:subClassOf dipl:Unterfertigung ;
@@ -1151,9 +1144,26 @@ dipl:CumFiloSerico rdf:type owl:NamedIndividual ,
                             dipl:Siegelbefestigung .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Dijon_15_H_17_pièce_1
+dipl:Dijon_15_H_17_pièce_1 rdf:type owl:NamedIndividual ,
+                                    dipl:Original ;
+                           rdfs:comment "Dijon, Archives départementales de la Côte d'Or, 15 H 17, pièce 1"@fr .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Dijon_15_H_9
+dipl:Dijon_15_H_9 rdf:type owl:NamedIndividual ,
+                           dipl:Abschrift ;
+                  rdfs:comment "Dijon, Archives départementales de la Côte d'Or, 15 H 9, Cartulaire 1, fol. 21r-v. - (Abbatia, 2) ; table : II. Carta Stephani episcopi de decimis non reddendis"@fr .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Durchdruck
 dipl:Durchdruck rdf:type owl:NamedIndividual ,
                          dipl:Siegelbefestigung .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Eduen
+dipl:Eduen rdf:type owl:NamedIndividual ,
+                    dipl:Ausstellungsort .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#GotselmVonLangres
@@ -1237,6 +1247,16 @@ dipl:Stein rdf:type owl:NamedIndividual ,
                     dipl:Ausstellungsort .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#StephanusEduensis
+dipl:StephanusEduensis rdf:type owl:NamedIndividual ,
+                                dipl:Aussteller .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Unterschrift
+dipl:Unterschrift rdf:type owl:NamedIndividual ,
+                           dipl:Unterfertigung .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Vualdricus
 dipl:Vualdricus rdf:type owl:NamedIndividual ,
                          dipl:Zeuge .
@@ -1251,6 +1271,44 @@ dipl:Vualterius rdf:type owl:NamedIndividual ,
 dipl:Wachssiegel rdf:type owl:NamedIndividual ,
                           dipl:Siegel ;
                  dipl:befestigtMit dipl:CumFiloCanapis .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#WillelmoAbbatiFonteneti
+dipl:WillelmoAbbatiFonteneti rdf:type owl:NamedIndividual ,
+                                      dipl:Empfänger .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen> rdf:type owl:NamedIndividual ,
+                                                                                           dipl:Carta ;
+                                                                                  dipl:beglaubigtDurch dipl:Unterschrift ;
+                                                                                  dipl:bestehtAusMaterial dipl:Pergament ;
+                                                                                  dipl:hatAussteller dipl:StephanusEduensis ;
+                                                                                  dipl:hatAusstellungsort dipl:Eduen ;
+                                                                                  dipl:hatEmpfänger dipl:WillelmoAbbatiFonteneti ;
+                                                                                  dipl:manifestiertAls dipl:Dijon_15_H_17_pièce_1 ;
+                                                                                  dipl:repräsentiert <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Inhalt> ;
+                                                                                  dipl:datiert "1139-12-31T00:00:00"^^xsd:dateTime ;
+                                                                                  dipl:verfasstInForm "subjektiv" ;
+                                                                                  dipl:verfasstInSprache "lat"^^xsd:language .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Inhalt
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Inhalt> rdf:type owl:NamedIndividual ,
+                                                                                                  dipl:Rechtsinhalt ;
+                                                                                         dipl:führtAus "Etienne [Ier de Bâgé], évêque d’Autun, accédant à la requête de Guillaume, abbé de Fontenay, dispense l'abbaye de Fontenay de payer les dîmes sur ses possessions sises dans le diocèse d'Autun, notamment à Flacey."@fr .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Inscriptio
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Inscriptio> rdf:type owl:NamedIndividual ,
+                                                                                                      dipl:Inscriptio ;
+                                                                                             dipl:enthältText "dilecto fratri Willelmo abbati Fonteneti"@fr .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Intitulatio
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Intitulatio> rdf:type owl:NamedIndividual ,
+                                                                                                       dipl:Intitulatio ;
+                                                                                              dipl:enthältText "Stephanus, dei gratia Eduensis episcopus"@fr .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein
