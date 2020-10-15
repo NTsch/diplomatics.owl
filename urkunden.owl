@@ -134,13 +134,25 @@ dipl:hatAusstellungsort rdf:type owl:ObjectProperty ;
                         rdfs:range dipl:Ausstellungsort .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#hatDruck
+dipl:hatDruck rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf dipl:hatVerwandteManifestation .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#hatEmpfänger
 dipl:hatEmpfänger rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf dipl:erwähntPerson .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#hatVerwandteManifestation
+dipl:hatVerwandteManifestation rdf:type owl:ObjectProperty ;
+                               rdfs:domain dipl:Manifestation ;
+                               rdfs:range dipl:Manifestation .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#hatVorurkunde
 dipl:hatVorurkunde rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf dipl:hatVerwandteManifestation ;
                    rdfs:domain dipl:Dokument ;
                    rdfs:range dipl:Dokument ;
                    rdfs:comment "Verbindet ein Dokument mit einem früheren Dokument, welches als Vorlage diente."@de .
@@ -156,6 +168,7 @@ dipl:inseriert rdf:type owl:ObjectProperty ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#istAbschriftVonOriginal
 dipl:istAbschriftVonOriginal rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf dipl:hatVerwandteManifestation ;
                              owl:inverseOf dipl:istOriginalZuAbschrift ;
                              rdf:type owl:FunctionalProperty ;
                              rdfs:domain dipl:Abschrift ;
@@ -165,7 +178,7 @@ dipl:istAbschriftVonOriginal rdf:type owl:ObjectProperty ;
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#istOriginalZuAbschrift
 dipl:istOriginalZuAbschrift rdf:type owl:ObjectProperty ;
-                            rdfs:subPropertyOf owl:topObjectProperty ;
+                            rdfs:subPropertyOf dipl:hatVerwandteManifestation ;
                             rdf:type owl:InverseFunctionalProperty ;
                             rdfs:domain dipl:Original ;
                             rdfs:range dipl:Abschrift .
@@ -463,6 +476,11 @@ dipl:Dispositio rdf:type owl:Class ;
 dipl:Dokument rdf:type owl:Class ;
               rdfs:subClassOf dipl:Urkunde ;
               rdfs:comment "Ein materielles Schriftstück."@de .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Druck
+dipl:Druck rdf:type owl:Class ;
+           rdfs:subClassOf dipl:Manifestation .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Duplikat
@@ -1090,6 +1108,12 @@ dipl:ÖffentlicherNotar rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#ARS_SA_AS_1063_5232
+dipl:ARS_SA_AS_1063_5232 rdf:type owl:NamedIndividual ,
+                                  dipl:Original ;
+                         rdfs:comment "Laibach (Ljubljana), Arhiv Republike Slovenjie, SA AS 1063, Zbrika listin, št. 5232" .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Aclinus
 dipl:Aclinus rdf:type owl:NamedIndividual ,
                       dipl:Zeuge .
@@ -1104,6 +1128,12 @@ dipl:BeneValete rdf:type owl:NamedIndividual ,
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#BertholdVonAquileia
 dipl:BertholdVonAquileia rdf:type owl:NamedIndividual ,
                                   dipl:Aussteller .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Chaumont_19J_2_fol.19
+dipl:Chaumont_19J_2_fol.19 rdf:type owl:NamedIndividual ,
+                                    dipl:Original ;
+                           rdfs:comment "Chaumont, Conseil général de la Haute-Marne (Archives départementales), Document 19 J 2, fol. 19."@fr .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Chrismon
@@ -1196,6 +1226,12 @@ dipl:Rota rdf:type owl:NamedIndividual ,
                    dipl:Unterzeichnung .
 
 
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Schumi1884_106
+dipl:Schumi1884_106 rdf:type owl:NamedIndividual ,
+                             dipl:Druck ;
+                    rdfs:comment "Franz Schumi, Urkunden- und Regestenbuch des Herzogtums Krain, Bd. 2/1 (1200-1253) (Laibach 1884), S. 81f. Nr. 106"@de .
+
+
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Stein
 dipl:Stein rdf:type owl:NamedIndividual ,
                     dipl:Ausstellungsort .
@@ -1233,6 +1269,8 @@ dipl:Wachssiegel rdf:type owl:NamedIndividual ,
                                                                                   dipl:hatAussteller dipl:BertholdVonAquileia ;
                                                                                   dipl:hatAusstellungsort dipl:Stein ;
                                                                                   dipl:hatEmpfänger dipl:PfarrerInKrain ;
+                                                                                  dipl:manifestiertAls dipl:ARS_SA_AS_1063_5232 ,
+                                                                                                       dipl:Schumi1884_106 ;
                                                                                   dipl:repräsentiert <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Inhalt> ;
                                                                                   dipl:datiert "1240-01-31T00:00:00"^^xsd:dateTime ;
                                                                                   dipl:verfasstInForm "subjektiv" ;
