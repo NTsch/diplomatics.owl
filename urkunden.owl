@@ -1153,6 +1153,7 @@ dipl:Dijon_15_H_17_pièce_1 rdf:type owl:NamedIndividual ,
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#Dijon_15_H_9
 dipl:Dijon_15_H_9 rdf:type owl:NamedIndividual ,
                            dipl:Abschrift ;
+                  dipl:istAbschriftVonOriginal dipl:Dijon_15_H_17_pièce_1 ;
                   rdfs:comment "Dijon, Archives départementales de la Côte d'Or, 15 H 9, Cartulaire 1, fol. 21r-v. - (Abbatia, 2) ; table : II. Carta Stephani episcopi de decimis non reddendis"@fr .
 
 
@@ -1283,14 +1284,33 @@ dipl:WillelmoAbbatiFonteneti rdf:type owl:NamedIndividual ,
                                                                                            dipl:Carta ;
                                                                                   dipl:beglaubigtDurch dipl:Unterschrift ;
                                                                                   dipl:bestehtAusMaterial dipl:Pergament ;
+                                                                                  dipl:enthältFormel <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Corroboratio> ,
+                                                                                                     <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Dispositio> ,
+                                                                                                     <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Inscriptio> ,
+                                                                                                     <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Intitulatio> ,
+                                                                                                     <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Narratio> ,
+                                                                                                     <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Sanctio> ;
                                                                                   dipl:hatAussteller dipl:StephanusEduensis ;
                                                                                   dipl:hatAusstellungsort dipl:Eduen ;
                                                                                   dipl:hatEmpfänger dipl:WillelmoAbbatiFonteneti ;
                                                                                   dipl:manifestiertAls dipl:Dijon_15_H_17_pièce_1 ;
                                                                                   dipl:repräsentiert <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Inhalt> ;
                                                                                   dipl:datiert "1139-12-31T00:00:00"^^xsd:dateTime ;
+                                                                                  dipl:gültigBis "dauerhaft" ;
                                                                                   dipl:verfasstInForm "subjektiv" ;
                                                                                   dipl:verfasstInSprache "lat"^^xsd:language .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Corroboratio
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Corroboratio> rdf:type owl:NamedIndividual ,
+                                                                                                        dipl:Corroboratio ;
+                                                                                               dipl:enthältText "Actum [...] confirmo." .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Dispositio
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Dispositio> rdf:type owl:NamedIndividual ,
+                                                                                                      dipl:Dispositio ;
+                                                                                             dipl:enthältText "Ad alimentum [...] emendationem."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Inhalt
@@ -1302,13 +1322,25 @@ dipl:WillelmoAbbatiFonteneti rdf:type owl:NamedIndividual ,
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Inscriptio
 <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Inscriptio> rdf:type owl:NamedIndividual ,
                                                                                                       dipl:Inscriptio ;
-                                                                                             dipl:enthältText "dilecto fratri Willelmo abbati Fonteneti"@fr .
+                                                                                             dipl:enthältText "dilecto fratri Willelmo abbati Fonteneti"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Intitulatio
 <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Intitulatio> rdf:type owl:NamedIndividual ,
                                                                                                        dipl:Intitulatio ;
-                                                                                              dipl:enthältText "Stephanus, dei gratia Eduensis episcopus"@fr .
+                                                                                              dipl:enthältText "Stephanus, dei gratia Eduensis episcopus"^^xsd:string .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Narratio
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Narratio> rdf:type owl:NamedIndividual ,
+                                                                                                    dipl:Narratio ;
+                                                                                           dipl:enthältText "Quia dignum [...] presumat."^^xsd:string .
+
+
+###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Sanctio
+<http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1139-12-31_Eduen_Sanctio> rdf:type owl:NamedIndividual ,
+                                                                                                   dipl:Sanctio ;
+                                                                                          dipl:enthältText "Alioquin [...] recepturos."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein
@@ -1331,6 +1363,7 @@ dipl:WillelmoAbbatiFonteneti rdf:type owl:NamedIndividual ,
                                                                                                        dipl:Schumi1884_106 ;
                                                                                   dipl:repräsentiert <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#1240-01-31_Stein_Inhalt> ;
                                                                                   dipl:datiert "1240-01-31T00:00:00"^^xsd:dateTime ;
+                                                                                  dipl:gültigBis "dauerhaft" ;
                                                                                   dipl:verfasstInForm "subjektiv" ;
                                                                                   dipl:verfasstInSprache "lat"^^xsd:language ;
                                                                                   rdfs:comment "Entnommen aus Härtel: Notarielle und kirchliche Urkunden im frühen und hohen Mittelalter, S. 389-391."@de .
@@ -1394,6 +1427,7 @@ dipl:WillelmoAbbatiFonteneti rdf:type owl:NamedIndividual ,
                                                                                    dipl:hatEmpfänger dipl:KapitelVonLangres ;
                                                                                    dipl:repräsentiert <http://www.semanticweb.org/niklas/ontologies/2020/4/diplomatik#906-04-31_Langres_Inhalt> ;
                                                                                    dipl:datiert "0906-04-28T00:00:00"^^xsd:dateTime ;
+                                                                                   dipl:gültigBis "dauerhaft" ;
                                                                                    dipl:verfasstInForm "objektiv" ;
                                                                                    dipl:verfasstInSprache "lat"^^xsd:language ;
                                                                                    rdfs:comment "Entnommen aus Härtel: Notarielle und kirchliche Urkunden im frühen und hohen Mittelalter, S. 347-349."@de .
